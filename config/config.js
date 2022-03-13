@@ -11,6 +11,11 @@ module.exports = {
   },
   "production":{
     "use_env_variable":"DATABASE_URL",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "ssl": {      /* <----- Add SSL option */
+      "require": "true",
+      "rejectUnauthorized": "false"
+    }
+
   }
 }

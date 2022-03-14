@@ -18,6 +18,7 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
+    "pg": "^7.4.3",
     "pg-promise": "^10.11.1",
     "sequelize": "^6.17.0",
     "sequelize-cli": "^6.4.1"
@@ -25,9 +26,8 @@
   "devDependencies": {
     "nodemon": "^2.0.15"
   },
-  "engines" : { 
-    "npm" : "~8.5.4",
-    "node" : "~17.7.1"
+  "engines": {
+    "npm": "~8.5.4",
+    "node": "~17.7.1"
   }
-
 }

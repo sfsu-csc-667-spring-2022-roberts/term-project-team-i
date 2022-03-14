@@ -1,3 +1,4 @@
+let ssl = null;
 if(process.env.NODE_ENV === 'development') {
   require("dotenv").config();
   ssl = {rejectUnauthorized: false};

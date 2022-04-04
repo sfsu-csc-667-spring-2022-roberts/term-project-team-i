@@ -1,0 +1,28 @@
+<div class="login-page">
+    <div class="container">
+
+        <div class="login-card">
+
+            <form id="form" method="POST" action="/users/login" enctype="application/x-www-form-urlencoded">
+                <h2 class="heading"> Log In </h2>
+
+                <input class="input" type="text" name="username" placeholder="Username" required />
+
+                <div class="password-eye">
+                    <input id="pwd" class="input" type="password" name="password" placeholder="Password" required />
+                    <i class="fa fa-eye" id="togglePassword" onclick="pwdToggle(this)"></i>
+                </div>
+
+                <input class="button" type="submit" name="submit" value="Submit" />
+
+                <p>
+                    Not a member yet? Sign up
+                    <a href="/signup">
+                        here.
+                    </a>
+                </p>
+            </form>
+
+        </div>
+    </div>
+</div>

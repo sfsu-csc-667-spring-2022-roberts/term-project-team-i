@@ -1,0 +1,59 @@
+<body>
+    <div class="lobby">
+        <div class="warpper">
+            <input class="radio" id="one" name="group" type="radio" checked />
+            <input class="radio" id="two" name="group" type="radio" />
+            <div class="tabs">
+                <label class="tab" id="one-tab" for="one">Create</label>
+                <label class="tab" id="two-tab" for="two">Join</label>
+            </div>
+            <div class="panels">
+                <div class="panel" id="one-panel">
+                    <div class="panel-title">Choose Game Settings...</div>
+                    <div class="panel-sett">
+                        <form id="form" method="POST" action="/users/login" enctype="application/x-www-form-urlencoded">
+                            <label>Lobby Name</label>
+                            <input class="input" type="text" required />
+                            <label>Max Players</label>
+                            <input class="input" type="number" required />
+                            <label>Time Limit</label>
+                            <input class="input" type="number" required />
+
+                            <input class="button" type="submit" name="submit" value="Create" />
+
+                        </form>
+                    </div>
+                </div>
+                <div class="panel" id="two-panel">
+                    <div class="panel-title">Available Lobbies...</div>
+                    <div class="panel-sett">
+                        <div>
+                            UNO Lobby 1<br />
+                            6 Max players, Unlimited Time
+                            <input class="button-small" type="submit" name="submit" value="Join" />
+                        </div>
+                        <br />
+                        <div>
+                            UNO Lobby 2<br />
+                            10 Max players, 15 Minute Time Limit
+                            <input class="button-small" type="submit" name="submit" value="Join" />
+                        </div>
+                        <br />
+                        <div>
+                            UNO Lobby 3<br />
+                            4 Max players, Unlimited Time
+                            <input class="button-small" type="submit" name="submit" value="Join" />
+                        </div>
+                        <br />
+                        <div>
+                            UNO Lobby 4<br />
+                            6 Max players, 20 Minute Time Limit
+                            <input class="button-small" type="submit" name="submit" value="Join" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="global-chat">global chat</div>
+    </div>
+</body>

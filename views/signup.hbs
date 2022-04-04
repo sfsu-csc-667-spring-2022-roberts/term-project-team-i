@@ -1,0 +1,52 @@
+<div class="register-page">
+    <div class="container">
+
+        <div class="reg-card">
+
+            <form id="form" method="POST" action="/users/register" enctype="application/x-www-form-urlencoded">
+
+                <h2 class="heading">Sign Up</h2>
+
+                <input id="uname" class="input" type="text" name="username" placeholder="Username" required />
+                <div id="uname_error" class="error"></div>
+                <div id="uname_char_error" class="error"></div>
+
+                <input id="email" class="input" type="email" name="email" placeholder="Email" required />
+
+                <div class="password-eye">
+                    <input id="pwd" class="input" type="password" name="password" placeholder="Password" required />
+                    <i class="fa fa-eye" id="togglePassword" onclick="pwdToggle(this)"></i>
+                </div>
+                <div id="pwd_error" class="error"></div>
+                <div id="pwd_char_error" class="error"></div>
+
+                <div class="password-eye">
+                    <input id="c_pwd" class="input" type="password" name="cpassword" placeholder="Confirm Password" required />
+                    <i class="fa fa-eye" id="togglePassword" onclick="c_pwdToggle(this)"></i>
+                </div>
+                <div id="c_pwd_error" class="error"></div>
+
+                <div class="check">
+                    <div class="age">
+                        <input type="checkbox" name="confirmAge" required />
+                        <label for="age">I accept I am 13+ years of age.</label>
+                    </div>
+                    <div class="policy">
+                        <input type="checkbox" name="confirmPolicy" required />
+                        <label for="policy">I have read and accept the</label>
+                        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">TOS and Privacy Rules.</a>
+                    </div>
+                </div>
+
+                <input class="button" type="submit" value="Submit" onclick="return validation()" />
+                <p>
+                    Already a member? Log in
+                    <a href="/login">
+                        here.
+                    </a>
+                </p>
+            </form>
+
+        </div>
+    </div>
+</div>

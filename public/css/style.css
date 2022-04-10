@@ -5,6 +5,12 @@ body {
     margin: 0;
     height: 100%;
     min-height: 100%;
+    background-color: #ffffff;
+    opacity: 1;
+    background-image: radial-gradient(rgba(255, 0, 0, 0.5) 0.8px, transparent 0.8px),
+        radial-gradient(hsla(246, 100%, 50%, 0.5) 0.8px, #ffffff 0.8px);
+    background-size: 32px 32px;
+    background-position: 0 0, 16px 16px;
 }
 
 body {
@@ -14,7 +20,6 @@ body {
 
     /* Coloring */
     color: #111;
-    background: #ffffff;
 }
 
 /* Links */
@@ -31,8 +36,16 @@ a:hover {
 *:focus {
     outline: none;
 }
+
+.nav {
+    background: url(/public/images/nav.svg);
+    background-size: 100% 100%;
+    width: 100%;
+    height: 160px;
+    position: fixed;
+    z-index: 150;
+}
 .navbar {
-    background-color: #ffffff;
     display: flex;
     position: fixed;
     width: 100%;
@@ -47,6 +60,8 @@ a:hover {
     display: flex;
     margin-left: auto;
     padding-right: 160px;
+    font-size: 22px;
+    padding-top: 18px;
 }
 
 .brand {
@@ -58,6 +73,7 @@ a:hover {
 .brand-title {
     display: flex;
     font-size: 22px;
+
     align-items: center;
     justify-content: center;
 }
@@ -83,10 +99,11 @@ a:hover {
     display: flex;
 }
 .welcome {
-    padding: 200px;
+    align-items: center;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    height: 100vh;
 }
 .rules {
     padding: 250px;
@@ -103,6 +120,15 @@ a:hover {
 .welcome-text-sub {
     font-size: 40px;
 }
+
+/* .txt-shd {
+    text-shadow: -2px 2px #000000;
+}
+
+.txt-shd:hover {
+    text-shadow: 0px 0px #000000;
+} */
+
 #slideshow-wrap {
     display: block;
     height: 450px;
@@ -110,7 +136,9 @@ a:hover {
     max-width: 640px;
     /* margin: auto; */
     border: 2px black solid;
+    box-shadow: -8px 8px #000000;
     position: relative;
+    background-color: white;
 }
 
 #slideshow-inner {
@@ -234,14 +262,12 @@ a:hover {
 }
 
 label.arrows {
-    font-family: "WebSymbolsRegular";
     font-size: 30px;
     color: black;
     position: absolute;
     top: 50%;
     margin-top: -25px;
     display: none;
-    opacity: 0.7;
     cursor: pointer;
     z-index: 1000;
     background-color: transparent;
@@ -252,7 +278,7 @@ label.arrows {
 }
 
 label.arrows:hover {
-    opacity: 1;
+    color: red;
 }
 
 label.arrows:active {
@@ -311,6 +337,25 @@ input[type="radio"]#button-5:checked ~ .arrows#arrow-4 {
     padding-top: 200px;
     overflow: hidden;
 }
+
+.login-card {
+    margin: 30px;
+    width: 450px;
+    background-color: #fff;
+    border: 2px solid #111;
+    margin-bottom: 200px;
+    box-shadow: 8px 8px #000000;
+}
+
+/* Registration Card */
+.reg-card {
+    margin: 30px;
+    width: 650px;
+    background: #ffffff;
+    margin-bottom: 300px;
+    border: 2px solid #111;
+    box-shadow: 8px 8px #000000;
+}
 form {
     display: flex;
     flex-direction: column;
@@ -321,7 +366,6 @@ form {
     margin: 15px 0 15px 0;
     line-height: 45px;
     width: 70%;
-    border-radius: 8px;
     border: 1px solid #e5e5e5;
     background: #e5e5e5;
     padding: 0 22px;
@@ -329,7 +373,7 @@ form {
 }
 
 .input:hover {
-    background-color: #a4b4c4;
+    background-color: rgba(255, 72, 72, 0.527);
 }
 
 .password-eye {
@@ -353,7 +397,6 @@ form {
     position: relative;
     margin: 20px 10px 20px 10px;
     border: 2px solid #111;
-    border-radius: 8px;
     background-color: rgb(255, 72, 72);
     color: #111;
     font-size: 22px;
@@ -361,7 +404,6 @@ form {
     height: 48px;
     cursor: pointer;
     font-family: "Chakra Petch", sans-serif;
-    z-index: 50;
     box-shadow: 5px 5px #000000;
     transition: all 0.12s ease-in-out;
 }
@@ -374,7 +416,6 @@ form {
 .button-small {
     position: relative;
     border: 2px solid #111;
-    border-radius: 8px;
     background-color: rgb(255, 72, 72);
     color: #111;
     font-size: 22px;
@@ -382,7 +423,6 @@ form {
     height: 45px;
     cursor: pointer;
     font-family: "Chakra Petch", sans-serif;
-    z-index: 50;
     box-shadow: 5px 5px #000000;
     transition: all 0.12s ease-in-out;
     margin-top: -50px;
@@ -408,10 +448,12 @@ form {
     margin-left: 20px;
 }
 .lobby {
-    padding: 200px;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-top: 20px;
 }
 .tabs {
     margin-bottom: -2px;
@@ -430,9 +472,10 @@ form {
     border: 2px black solid;
     min-height: 400px;
     width: 100%;
-    border-radius: 3px;
     overflow: hidden;
     padding: 20px;
+    box-shadow: 8px 8px #000000;
+    background-color: #fff;
 }
 .panel {
     display: none;
@@ -469,20 +512,35 @@ form {
 .panel-sett {
     padding-top: 20px;
 }
+
+.game {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    height: 100vh;
+    padding-top: 200px;
+}
+
 .global-chat {
-    padding: 20px 100px 0px 100px;
+    padding: 20px 100px 500px 100px;
     border: black 2px solid;
+    box-shadow: 8px 8px #000000;
+    background-color: #fff;
 }
 .game-area {
-    padding: 100px 600px 100px 600px;
+    padding: 100px 600px 600px 600px;
     border: black 2px solid;
     text-align: center;
+    box-shadow: 8px 8px #000000;
+    background-color: #fff;
 }
 .game-panels {
     border: 2px black solid;
-    min-height: 600px;
+    min-height: 640px;
     width: 300px;
-    border-radius: 3px;
     overflow: hidden;
     padding: 20px;
+    box-shadow: 8px 8px #000000;
+    background-color: #fff;
 }

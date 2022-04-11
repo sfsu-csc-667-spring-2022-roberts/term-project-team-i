@@ -41,7 +41,7 @@ a:hover {
     background: url(/public/images/nav.svg);
     background-size: 100% 100%;
     width: 100%;
-    height: 160px;
+    height: 145px;
     position: fixed;
     z-index: 150;
 }
@@ -529,7 +529,7 @@ form {
     background-color: #fff;
 }
 .game-area {
-    padding: 100px 600px 600px 600px;
+    /* padding: 100px 600px 600px 600px; */
     border: black 2px solid;
     text-align: center;
     box-shadow: 8px 8px #000000;
@@ -537,10 +537,207 @@ form {
 }
 .game-panels {
     border: 2px black solid;
-    min-height: 640px;
+    min-height: 735px;
     width: 300px;
     overflow: hidden;
     padding: 20px;
     box-shadow: 8px 8px #000000;
     background-color: #fff;
+}
+
+/* CARDS STYLES */
+.card {
+    display: inline-block;
+    background-color: #fff;
+    border: 1px solid rgb(0, 0, 0);
+    padding: 2px;
+    transition: 200ms;
+    position: relative;
+}
+.card .bckg {
+    width: 80px;
+    height: 130px;
+    overflow: hidden;
+    position: relative;
+}
+.card .bckg::before {
+    content: "";
+    width: 5em;
+    height: 6.5em;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(10deg);
+    transform-origin: center center;
+    border-radius: 90% 40%;
+}
+.card.red {
+    color: #dc251c;
+}
+.card.red .bckg {
+    background-color: #dc251c;
+}
+.card.yellow {
+    color: #fcf604;
+}
+.card.yellow .bckg {
+    background-color: #fcf604;
+}
+.card.blue {
+    color: #0493de;
+}
+.card.blue .bckg {
+    background-color: #0493de;
+}
+.card.green {
+    color: #018d41;
+}
+.card.green .bckg {
+    background-color: #018d41;
+}
+.card.black {
+    color: #1f1b18;
+}
+.card.black .bckg {
+    background-color: #1f1b18;
+}
+.card.turned:hover {
+    cursor: default;
+}
+.card.turned .bckg {
+    background-color: #1f1b18;
+}
+.card.turned .bckg::before {
+    background-color: #dc251c;
+}
+.game-field #piles_area {
+    position: relative;
+    transition: 200ms;
+}
+
+#draw_pile {
+    position: absolute;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-top: 100px;
+    margin-left: -80px;
+}
+#draw_pile .card.top-card,
+#draw_pile .card.pile {
+    position: absolute;
+}
+
+#draw_pile .card.pile {
+    box-shadow: 0px 2px #fff, 0px 4px rgba(0, 0, 0, 0.16), 0px 6px #fff, 0px 8px rgba(0, 0, 0, 0.16), 0px 10px #fff,
+        0px 12px rgba(0, 0, 0, 0.16), 0px 14px #fff, 0px 16px rgba(0, 0, 0, 0.16), 0px 18px #fff, 0px 20px rgba(0, 0, 0, 0.16);
+}
+
+#draw_pile .card.top-card {
+    z-index: 100;
+    box-shadow: none;
+}
+#draw_pile .card.top-card:hover {
+    box-shadow: 0px 4px rgba(0, 0, 0, 0.16);
+    cursor: pointer;
+    transform: translateY(1em);
+}
+#discard_pile {
+    position: absolute;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-top: 100px;
+    margin-left: 80px;
+}
+#discard_pile .card.top-card,
+#discard_pile .card.pile {
+    position: absolute;
+}
+#discard_pile .card.pile {
+    box-shadow: 0px 2px #fff, 0px 4px rgba(0, 0, 0, 0.16), 0px 6px #fff, 0px 8px rgba(0, 0, 0, 0.16);
+}
+#discard_pile .card.pile:hover {
+    transform: none;
+}
+#discard_pile .card.top-card {
+    z-index: 100;
+    box-shadow: none;
+}
+.game-field {
+    height: 100%;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-gap: 0.5em;
+    justify-items: center;
+    grid-template-columns: 400px 450px 400px;
+    grid-template-rows: 200px 400px 200px;
+}
+.game-field.perspective {
+    transform: rotateX(30deg);
+}
+#piles_area {
+    grid-area: 2/2;
+}
+#player {
+    grid-area: 3/2;
+}
+#player_left {
+    grid-area: 2/1;
+}
+#player_top {
+    grid-area: 1/2;
+}
+#player_right {
+    grid-area: 2/3;
+}
+.player_hand {
+    position: relative;
+}
+.player_hand .card {
+    position: absolute;
+}
+.player_hand .card:nth-child(1) {
+    left: 50px;
+}
+.player_hand .card:nth-child(2) {
+    left: 100px;
+}
+.player_hand .card:nth-child(3) {
+    left: 150px;
+}
+.player_hand .card:nth-child(4) {
+    left: 200px;
+}
+.player_hand .card:nth-child(5) {
+    left: 250px;
+}
+.player_hand .card:nth-child(6) {
+    left: 300px;
+}
+.player_hand .card:nth-child(7) {
+    left: 350px;
+}
+#player .player_hand .card {
+    margin-top: 10px;
+    margin-left: -230px;
+    cursor: pointer;
+}
+#player .player_hand .card:hover {
+    transform: rotate(5deg) translateY(-20px);
+}
+#player .player_hand .card:hover ~ .card {
+    transform: translateX(2em);
+}
+#player_left .player_hand {
+    transform: rotate(90deg) translateY(-65px) translateX(10px);
+}
+#player_top .player_hand {
+    margin-left: -200px;
+    transform: translateY(10px);
+}
+#player_right .player_hand {
+    transform: rotate(-90deg) translateY(-65px) translateX(-390px);
 }

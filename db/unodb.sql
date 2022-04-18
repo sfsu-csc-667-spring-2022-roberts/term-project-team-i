@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `unodb` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `unodb`;
 -- MySQL dump 10.13  Distrib 8.0.26, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: unodb
@@ -38,6 +40,15 @@ CREATE TABLE `chatroom` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `chatroom`
+--
+
+LOCK TABLES `chatroom` WRITE;
+/*!40000 ALTER TABLE `chatroom` DISABLE KEYS */;
+/*!40000 ALTER TABLE `chatroom` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `comment`
 --
 
@@ -56,6 +67,15 @@ CREATE TABLE `comment` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `comment`
+--
+
+LOCK TABLES `comment` WRITE;
+/*!40000 ALTER TABLE `comment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `comment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `game`
 --
 
@@ -72,6 +92,15 @@ CREATE TABLE `game` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `game`
+--
+
+LOCK TABLES `game` WRITE;
+/*!40000 ALTER TABLE `game` DISABLE KEYS */;
+/*!40000 ALTER TABLE `game` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `gamechat`
 --
 
@@ -85,6 +114,15 @@ CREATE TABLE `gamechat` (
   PRIMARY KEY (`chatid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `gamechat`
+--
+
+LOCK TABLES `gamechat` WRITE;
+/*!40000 ALTER TABLE `gamechat` DISABLE KEYS */;
+/*!40000 ALTER TABLE `gamechat` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `gamesession`
@@ -109,6 +147,15 @@ CREATE TABLE `gamesession` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `gamesession`
+--
+
+LOCK TABLES `gamesession` WRITE;
+/*!40000 ALTER TABLE `gamesession` DISABLE KEYS */;
+/*!40000 ALTER TABLE `gamesession` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `gamestate`
 --
 
@@ -126,6 +173,15 @@ CREATE TABLE `gamestate` (
   CONSTRAINT `sessionid` FOREIGN KEY (`sessionid`) REFERENCES `gamesession` (`sessionid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `gamestate`
+--
+
+LOCK TABLES `gamestate` WRITE;
+/*!40000 ALTER TABLE `gamestate` DISABLE KEYS */;
+/*!40000 ALTER TABLE `gamestate` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `session`
@@ -147,6 +203,15 @@ CREATE TABLE `session` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `session`
+--
+
+LOCK TABLES `session` WRITE;
+/*!40000 ALTER TABLE `session` DISABLE KEYS */;
+/*!40000 ALTER TABLE `session` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `user`
 --
 
@@ -165,6 +230,16 @@ CREATE TABLE `user` (
   UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (5,'FernandoBa','ba@gmail.com','$2b$10$tft92U96wGHOqVhkKD90he/Wu2bPoBdH5SJWXuia/WjhuLn6rAe6.','2022-04-18 04:24:10');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -175,4 +250,4 @@ CREATE TABLE `user` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-18  4:42:15
+-- Dump completed on 2022-04-18 13:21:32

@@ -31,7 +31,7 @@
 
 - install local database:
     In the mySQL workbench menu screen create a connection name it what ever you want. Connect to it, enter your password.
-    Next, in the menu bar click Server choose import data.
+    Next, in the menu bar click Server choose data import.
     choose Import from Self-Contained File and find the directory were unodb.sql is stored in our project(its in the db folder).
     click start import
     refresh schemas 

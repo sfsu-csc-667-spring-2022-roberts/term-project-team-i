@@ -29,3 +29,13 @@
 - Before pushing any code to the github:
     - "rm -rf node_modules"
 
+- install local database:
+    In the mySQL workbench menu screen create a connection name it what ever you want. Connect to it, enter your password.
+    Next, in the menu bar click Server choose import data.
+    choose Import from Self-Contained File and find the directory were unodb.sql is stored in our project(its in the db folder).
+    click start import
+    refresh schemas 
+    go to database.js (in the db folder). Change password to your sql root password;
+
+
+

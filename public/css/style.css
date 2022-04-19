@@ -393,6 +393,27 @@ form {
     font-size: 16px;
     font-family: "Chakra Petch", sans-serif;
 }
+
+/* Validation */
+.check {
+    width: 70%;
+    text-align: center;
+}
+
+.age,
+.policy {
+    padding-top: 15px;
+}
+
+.error {
+    width: 70%;
+    text-align: left;
+    font-size: 16px;
+    padding: 3px;
+    line-height: 20px;
+    display: none;
+}
+
 .button {
     position: relative;
     margin: 20px 10px 20px 10px;

@@ -17,10 +17,19 @@ var usersRouter = require("./routes/users");
 var testsRouter = require("./routes/tests");
 // var createGameRouter = require('./routes/createGame');
 // var joinGameRouter = require('./routes/joinGame');
+// var exitGameRouter = require('./routes/exitGame');
 // var loginRouter = require('./routes/login');
 // var signupRouter = require('./routes/signup');
 // var landingRouter = require('./routes/landing');
 // var gamePageRouter = require('./routes/game');
+
+// var localChatRouter = require('./routes/localChat');
+// var globalGameRouter = require('./routes/globalChat');
+
+// var callUnoRouter = require('./routes/callUno');
+// var callNonUnoRouter = require('./routes/callNonUno');
+
+//var playCardRouter = require('./routes/playCard');
 const { sign } = require("crypto");
 
 var app = express();

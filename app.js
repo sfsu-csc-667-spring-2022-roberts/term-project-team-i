@@ -9,6 +9,9 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
+//TODO - uncomment the routers below as you are writing the routes
+//      and testing them.
+
 //var indexRouter = require('./routes/index');
 var usersRouter = require("./routes/users");
 var testsRouter = require("./routes/tests");

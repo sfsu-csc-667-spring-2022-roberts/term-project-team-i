@@ -8,6 +8,8 @@ var hbs = require("express-handlebars");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+var sessions = require('express-session');
+var mysqlSession = require('express-mysql-session')(sessions);
 
 //TODO - uncomment the routers below as you are writing the routes
 //      and testing them.
@@ -52,6 +54,18 @@ app.engine(
     })
 );
 
+var mysqlSessionStore = new mysqlSession(
+    {
+        /*using default options*/
+    },
+    require('./db/database.js'));
+app.use(sessions({
+    key: "csid",
+    secret: "this is a secret",
+    store: mysqlSessionStore,
+    resave: false,
+    saveUninitialized: false
+}))
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -99,5 +113,6 @@ app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render("error");
 });
+
 
 module.exports = app;

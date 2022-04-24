@@ -4,6 +4,7 @@ var router = express.Router();
 var db = require('../db/database');
 var bcrypt = require('bcrypt');
 
+
 //TODO - use this users.js route as a guide for other routes to 
 //      access specific data, and submit other data to database.
 
@@ -53,5 +54,42 @@ router.post('/register', (req,res,next)=> {
     }
   }); 
 }); 
+router.post('/login',(req,res,next) => {
+  let username = req.body.username;
+  let password =  req.body.password;
+
+  //do serverside validation
+
+  let baseSQL = "SELECT id, username, password FROM user WHERE username = ?;";
+  let userId;
+  db.execute(baseSQL,[username])
+  .then(([results, fields])=> {
+    if(results && results.length == 1){
+      let hashedPassword = results[0].password;
+      userId= results[0].id;
+      return bcrypt.compare(password, hashedPassword); //checks password 
+    } else {
+      //user not found
+      //throw error invalid username.
+      res.redirect('/login');
+    }
+  })
+  .then((passwordsMatched) => {
+    if(passwordsMatched){ //if password mathched
+      req.session.username = username;
+      req.session.userId = userId;
+      res.redirect('/lobby');
+      
+    } else {
+      //passwrod did not match
+      //throw error invalid password.
+      res.redirect('/login');
+    }
+  })
+  .catch((err)=> {
+    // throw message server error
+  })
+
+});
 
 module.exports = router;

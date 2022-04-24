@@ -72,6 +72,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use("/public", express.static(path.join(__dirname, "public")));
 
+app.use((req,res,next) => {
+    if(req.session.username){
+        res.locals.logged = true;
+    }
+    next();
+});
+
 //static file serving
 app.get("/", function (req, res) {
     res.render("landing", { title: "Welcome to UNO!" });

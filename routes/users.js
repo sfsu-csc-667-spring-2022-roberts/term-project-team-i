@@ -78,6 +78,7 @@ router.post('/login',(req,res,next) => {
     if(passwordsMatched){ //if password mathched
       req.session.username = username;
       req.session.userId = userId;
+      res.locals.logged = true;
       res.redirect('/lobby');
       
     } else {

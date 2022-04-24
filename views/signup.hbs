@@ -1,6 +1,8 @@
 <div class="register-page">
     <div class="container">
 
+        <h2 class="heading">{{message}}</h2>
+
         <div class="reg-card">
 
             <form id="form" method="POST" action="/users/register" enctype="application/x-www-form-urlencoded">
@@ -8,23 +10,24 @@
                 <h2 class="heading">Sign Up</h2>
 
                 <input id="uname" class="input" type="text" name="username" placeholder="Username" required />
-                <div id="uname_error" class="error"></div>
+                <div id="uname_error" class="error">{{uname_error}}</div>
                 <div id="uname_char_error" class="error"></div>
 
                 <input id="email" class="input" type="email" name="email" placeholder="Email" required />
+                <div id="uname_error" class="error">{{email_error}}</div>
 
                 <div class="password-eye">
                     <input id="pwd" class="input" type="password" name="password" placeholder="Password" required />
                     <i class="fa fa-eye" id="togglePassword" onclick="pwdToggle(this)"></i>
                 </div>
-                <div id="pwd_error" class="error"></div>
+                <div id="pwd_error" class="error">{{password_error}}</div>
                 <div id="pwd_char_error" class="error"></div>
 
                 <div class="password-eye">
                     <input id="c_pwd" class="input" type="password" name="cpassword" placeholder="Confirm Password" required />
                     <i class="fa fa-eye" id="togglePassword" onclick="c_pwdToggle(this)"></i>
                 </div>
-                <div id="c_pwd_error" class="error"></div>
+                <div id="c_pwd_error" class="error">{{c_password_error}}</div>
 
                 <div class="check">
                     <div class="age">

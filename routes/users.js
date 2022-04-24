@@ -3,6 +3,7 @@ const req = require('express/lib/request');
 var router = express.Router();
 var db = require('../db/database');
 var bcrypt = require('bcrypt');
+const url = require('url');
 
 
 //TODO - use this users.js route as a guide for other routes to 
@@ -21,6 +22,11 @@ router.post('/register', (req,res,next)=> {
   //TODO - server side validation:
   //    Check that password and cpassword are the same
 
+  if (password != cpassword) {
+    res.render('register', {c_password_error: 'Password and confirm password must be same!', 
+      password_error: 'Password and confirm password must be same!'}); 
+  }
+
   //TODO - throw errors for registration validation
   //    can possibly "res.redirect" to an error page or the signup page
   //    maybe with some fields still filled?
@@ -30,7 +36,7 @@ router.post('/register', (req,res,next)=> {
     if(results && results.length == 0){
       return db.execute("SELECT * FROM user WHERE email = ?", [email]);
     } else {
-      //throw an error
+      res.render('register', {uname_error: 'Username already exists!'}); 
     }
   })
   .then(([results, fields]) => {
@@ -38,7 +44,7 @@ router.post('/register', (req,res,next)=> {
       return bcrypt.hash(password, 10);
       
     } else {
-      //throw an error
+      res.render('register', {email_error: 'Email already exists!'}); 
     }
   })
   .then((hashedPassword) => {
@@ -48,9 +54,9 @@ router.post('/register', (req,res,next)=> {
   })
   .then(([results, fields]) => {
     if(results && results.affectedRows){
-      res.redirect('/login');
+      res.render('login', {message: 'New user has been registered successfully.'});
     } else {
-      //throw an error
+      res.render('register', {message: 'Failed to register the new user.'});
     }
   }); 
 }); 

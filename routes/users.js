@@ -92,5 +92,17 @@ router.post('/login',(req,res,next) => {
   })
 
 });
+router.post('/logout', (req,res,next)=>{
+  req.session.destroy((err) => {
+    if(err){
+      //theres an error destroying the session
+      next(err);
+    } else {
+      res.clearCookie('csid');
+      res.json({status: "OK", message: "user is logged out"});
+      console.log("it went through the logout route");     
+    }
+  })
+});
 
 module.exports = router;

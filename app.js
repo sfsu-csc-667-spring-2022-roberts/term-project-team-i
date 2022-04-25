@@ -89,7 +89,7 @@ app.get("/login", function (req, res) {
 });
 
 app.get("/signup", function (req, res) {
-    res.render("signup", { title: "Join Us!" });
+    res.render("signup", { title: "Join Us!", message: req.query.message});
 });
 
 app.get("/lobby", function (req, res) {

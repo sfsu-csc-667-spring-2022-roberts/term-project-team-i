@@ -3,7 +3,7 @@ const req = require('express/lib/request');
 var router = express.Router();
 var db = require('../db/database');
 var bcrypt = require('bcrypt');
-const url = require('url');
+//const url = require('url');
 
 
 //TODO - use this users.js route as a guide for other routes to 
@@ -23,28 +23,52 @@ router.post('/register', (req,res,next)=> {
   //    Check that password and cpassword are the same
 
   if (password != cpassword) {
-    res.render('register', {c_password_error: 'Password and confirm password must be same!', 
-      password_error: 'Password and confirm password must be same!'}); 
+    res.redirect('/signup?message=Password and confirm password must be same!'); 
   }
 
   //TODO - throw errors for registration validation
   //    can possibly "res.redirect" to an error page or the signup page
   //    maybe with some fields still filled?
+  db.execute("SELECT * FROM user WHERE username = ?", [username])
+  .then(([results, fields]) => {
+    if(results && results.length == 0){
+      db.execute("SELECT * FROM user WHERE email = ?", [email])
+      .then(([results, fields]) => {
+        if(results && results.length == 0){
+          bcrypt.hash(password, 10).then((hashedPassword) => {
+    
+              let baseSQL = 'INSERT INTO user (username, email, password, create_time) VALUES (?,?,?,now());'
+              return db.execute(baseSQL,[username, email, hashedPassword]);
+            })
+            .then(([results, fields]) => {
+              if(results && results.affectedRows){
+                res.redirect('/login?message=New user has been registered successfully.');
+              } else {
+                res.redirect('/signup?message=Failed to register the new user.');
+              }
+            }); 
 
+        } else {
+            res.redirect('/signup?message=Email already exists!'); 
+        }
+      })
+    } else {
+       res.redirect('/signup?message=Username already exists!'); 
+    }
+  });
+
+/*
   db.execute("SELECT * FROM user WHERE username = ?", [username])
   .then(([results, fields]) => {
     if(results && results.length == 0){
       return db.execute("SELECT * FROM user WHERE email = ?", [email]);
-    } else {
-      res.render('register', {uname_error: 'Username already exists!'}); 
-    }
+    } 
   })
   .then(([results, fields]) => {
     if(results && results.length == 0){
       return bcrypt.hash(password, 10);
-      
     } else {
-      res.render('register', {email_error: 'Email already exists!'}); 
+        res.redirect('/error'); 
     }
   })
   .then((hashedPassword) => {
@@ -59,6 +83,7 @@ router.post('/register', (req,res,next)=> {
       res.render('register', {message: 'Failed to register the new user.'});
     }
   }); 
+  */
 }); 
 router.post('/login',(req,res,next) => {
   let username = req.body.username;

@@ -17,6 +17,8 @@ var mysqlSession = require('express-mysql-session')(sessions);
 //var indexRouter = require('./routes/index');
 var usersRouter = require("./routes/users");
 var testsRouter = require("./routes/tests");
+var gameRouter = require("./routes/game");
+var lobbyRouter = require("./routes/lobby");
 // var createGameRouter = require('./routes/createGame');
 // var joinGameRouter = require('./routes/joinGame');
 // var exitGameRouter = require('./routes/exitGame');
@@ -104,6 +106,8 @@ app.get("/game", function (req, res) {
 //app.use('/', indexRouter);
 app.use("/users", usersRouter);
 app.use("/tests", testsRouter);
+app.use("/game", gameRouter);
+app.use("/lobby", lobbyRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

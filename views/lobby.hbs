@@ -14,10 +14,10 @@
                         <form id="form" method="POST" action="/game/create" enctype="application/x-www-form-urlencoded">
                             <label>Lobby Name</label>
                             <input class="input" type="text" name="lobbyName" required />
-                            <label>Max Players</label>
+                            {{!-- <label>Max Players</label>
                             <input class="input" type="number" name="maxPlayers" required />
                             <label>Time Limit</label>
-                            <input class="input" type="number" name="timeLimit" required />
+                            <input class="input" type="number" name="timeLimit" required /> --}}
 
                             <input class="button" type="submit" name="submit" value="Create" />
 
@@ -58,6 +58,21 @@
                 </div>
             </div>
         </div>
-        <div class="global-chat">global chat</div>
+
+        <div class="comments-container">
+            global chat
+                <div id="messages">
+                    {{#each currentPost.comments}}
+                    {{> comment this}}
+                    {{/each}}
+                </div>
+                <div class="enter-comments">
+                    <input class="input" id="comment-text" style="height: 50px;" placeholder="Comment Here!"></input>
+                    <button type="submit" style="height: 50px;" id="comment-button">
+                        <i class="fa fa-arrow-up"></i>
+                    </button>
+                </div>
+            </div>
+        {{!-- <div class="global-chat">global chat</div> --}}
     </div>
 </body>

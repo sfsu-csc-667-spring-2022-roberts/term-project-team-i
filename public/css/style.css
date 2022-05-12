@@ -37,11 +37,12 @@ a:hover {
     outline: none;
 }
 
+/* nav */
 .nav {
     background: url(/public/images/nav.svg);
     background-size: 100% 100%;
     width: 100%;
-    height: 145px;
+    height: 110px;
     position: fixed;
     z-index: 150;
 }
@@ -51,7 +52,7 @@ a:hover {
     width: 100%;
     align-items: center;
     justify-content: center;
-    height: 100px;
+    height: 90px;
     z-index: 150;
     flex-direction: row;
 }
@@ -84,7 +85,7 @@ a:hover {
     background-size: 100% 100%;
     height: 65px;
     width: 100px;
-    margin: 0px 15px 0px 15px;
+    margin: 0px 15px 0px 50px;
     vertical-align: top;
 }
 
@@ -98,6 +99,8 @@ a:hover {
     margin-left: 25px;
     display: flex;
 }
+
+/* Welcome Page */
 .welcome {
     align-items: center;
     display: flex;
@@ -120,14 +123,6 @@ a:hover {
 .welcome-text-sub {
     font-size: 40px;
 }
-
-/* .txt-shd {
-    text-shadow: -2px 2px #000000;
-}
-
-.txt-shd:hover {
-    text-shadow: 0px 0px #000000;
-} */
 
 #slideshow-wrap {
     display: block;
@@ -329,11 +324,12 @@ input[type="radio"]#button-5:checked ~ .arrows#arrow-4 {
     font-size: 25px;
     padding: 30px;
 }
+
+/* Forms */
 /* Container for all Cards */
 .container {
     display: flex;
     justify-content: center;
-    /* overflow-y: visible; */
     padding-top: 200px;
     overflow: hidden;
 }
@@ -428,7 +424,7 @@ form {
     box-shadow: 5px 5px #000000;
     transition: all 0.12s ease-in-out;
 }
-.button:hover {
+.button:focus {
     background-color: white;
     color: rgb(255, 72, 72);
     border: 2px solid rgb(255, 72, 72);
@@ -448,12 +444,14 @@ form {
     transition: all 0.12s ease-in-out;
     margin-top: -50px;
 }
-.button-small:hover {
+.button-small:focus {
     background-color: white;
     color: rgb(255, 72, 72);
     border: 2px solid rgb(255, 72, 72);
     box-shadow: 0px 0px #00000000;
 }
+
+/* Lobby */
 .warpper {
     display: flex;
     flex-direction: column;
@@ -531,16 +529,15 @@ form {
     border-bottom: none;
 }
 .panel-sett {
-    padding-top: 20px;
+    padding-top: 75px;
 }
 
 .game {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-
     height: 100vh;
-    padding-top: 200px;
+    padding-top: 120px;
 }
 
 .global-chat {
@@ -550,11 +547,12 @@ form {
     background-color: #fff;
 }
 .game-area {
-    /* padding: 100px 600px 600px 600px; */
     border: black 2px solid;
     text-align: center;
     box-shadow: 8px 8px #000000;
     background-color: #fff;
+    display: flex;
+    flex-direction: column;
 }
 .game-panels {
     border: 2px black solid;
@@ -567,137 +565,42 @@ form {
 }
 
 /* CARDS STYLES */
-.card {
-    display: inline-block;
-    background-color: #fff;
-    border: 1px solid rgb(0, 0, 0);
-    padding: 2px;
-    transition: 200ms;
-    position: relative;
-}
-.card .bckg {
-    width: 80px;
-    height: 130px;
-    overflow: hidden;
-    position: relative;
-}
-.card .bckg::before {
-    content: "";
-    width: 5em;
-    height: 6.5em;
-    background-color: #fff;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%) rotate(10deg);
-    transform-origin: center center;
-    border-radius: 90% 40%;
-}
-.card.red {
-    color: #dc251c;
-}
-.card.red .bckg {
-    background-color: #dc251c;
-}
-.card.yellow {
-    color: #fcf604;
-}
-.card.yellow .bckg {
-    background-color: #fcf604;
-}
-.card.blue {
-    color: #0493de;
-}
-.card.blue .bckg {
-    background-color: #0493de;
-}
-.card.green {
-    color: #018d41;
-}
-.card.green .bckg {
-    background-color: #018d41;
-}
-.card.black {
-    color: #1f1b18;
-}
-.card.black .bckg {
-    background-color: #1f1b18;
-}
-.card.turned:hover {
-    cursor: default;
-}
-.card.turned .bckg {
-    background-color: #1f1b18;
-}
-.card.turned .bckg::before {
-    background-color: #dc251c;
-}
-.game-field #piles_area {
-    position: relative;
-    transition: 200ms;
-}
 
-#draw_pile {
-    position: absolute;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    margin-top: 100px;
-    margin-left: -80px;
-}
-#draw_pile .card.top-card,
-#draw_pile .card.pile {
-    position: absolute;
-}
-
-#draw_pile .card.pile {
-    box-shadow: 0px 2px #fff, 0px 4px rgba(0, 0, 0, 0.16), 0px 6px #fff, 0px 8px rgba(0, 0, 0, 0.16), 0px 10px #fff,
-        0px 12px rgba(0, 0, 0, 0.16), 0px 14px #fff, 0px 16px rgba(0, 0, 0, 0.16), 0px 18px #fff, 0px 20px rgba(0, 0, 0, 0.16);
-}
-
-#draw_pile .card.top-card {
-    z-index: 100;
-    box-shadow: none;
-}
-#draw_pile .card.top-card:hover {
-    box-shadow: 0px 4px rgba(0, 0, 0, 0.16);
-    cursor: pointer;
-    transform: translateY(1em);
-}
-#discard_pile {
-    position: absolute;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    margin-top: 100px;
-    margin-left: 80px;
-}
-#discard_pile .card.top-card,
-#discard_pile .card.pile {
-    position: absolute;
-}
-#discard_pile .card.pile {
-    box-shadow: 0px 2px #fff, 0px 4px rgba(0, 0, 0, 0.16), 0px 6px #fff, 0px 8px rgba(0, 0, 0, 0.16);
-}
-#discard_pile .card.pile:hover {
-    transform: none;
-}
-#discard_pile .card.top-card {
-    z-index: 100;
-    box-shadow: none;
-}
-.game-field {
+#game-field {
     height: 100%;
-    display: grid;
     justify-content: center;
     align-content: center;
-    grid-gap: 0.5em;
     justify-items: center;
     grid-template-columns: 400px 450px 400px;
-    grid-template-rows: 200px 400px 200px;
+    grid-template-rows: 200px 300px 250px;
+    display: none;
 }
-.game-field.perspective {
-    transform: rotateX(30deg);
+
+#button-game {
+    position: relative;
+    margin: 320px;
+    border: 2px solid #111;
+    background-color: rgb(255, 72, 72);
+    color: #111;
+    font-size: 22px;
+    width: 600px;
+    height: 78px;
+    text-align: center;
+    cursor: pointer;
+    font-family: "Chakra Petch", sans-serif;
+    box-shadow: 5px 5px #000000;
+    transition: all 0.12s ease-in-out;
+}
+
+#button-game:focus {
+    background-color: white;
+    color: rgb(255, 72, 72);
+    border: 2px solid rgb(255, 72, 72);
+    box-shadow: 0px 0px #00000000;
+}
+
+.lobby-name {
+    padding: 30px;
 }
 #piles_area {
     grid-area: 2/2;
@@ -705,60 +608,136 @@ form {
 #player {
     grid-area: 3/2;
 }
-#player_left {
-    grid-area: 2/1;
-}
+
 #player_top {
     grid-area: 1/2;
 }
-#player_right {
-    grid-area: 2/3;
-}
-.player_hand {
+
+#player_hand,
+#player_hand_top {
     position: relative;
+    display: flex;
 }
-.player_hand .card {
-    position: absolute;
-}
-.player_hand .card:nth-child(1) {
-    left: 50px;
-}
-.player_hand .card:nth-child(2) {
-    left: 100px;
-}
-.player_hand .card:nth-child(3) {
-    left: 150px;
-}
-.player_hand .card:nth-child(4) {
-    left: 200px;
-}
-.player_hand .card:nth-child(5) {
-    left: 250px;
-}
-.player_hand .card:nth-child(6) {
-    left: 300px;
-}
-.player_hand .card:nth-child(7) {
-    left: 350px;
-}
-#player .player_hand .card {
-    margin-top: 10px;
-    margin-left: -230px;
+
+#player_hand > img,
+#player_hand_top > img {
+    border: 2px solid #111;
     cursor: pointer;
+    box-shadow: 2px 2px #000000;
+    border-radius: 7px;
+    margin-right: 8px;
 }
-#player .player_hand .card:hover {
+
+#player #player_hand > img:hover {
     transform: rotate(5deg) translateY(-20px);
 }
-#player .player_hand .card:hover ~ .card {
-    transform: translateX(2em);
+
+#piles_area {
+    display: flex;
+    align-items: center;
+    margin-left: -150px;
 }
-#player_left .player_hand {
-    transform: rotate(90deg) translateY(-65px) translateX(10px);
+
+#draw_pile {
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    border: 2px solid #111;
+    border-radius: 7px;
+    box-shadow: 0px 2px #fff, 0px 4px #000000, 0px 6px #fff, 0px 8px #000000, 0px 10px #fff, 0px 12px #000000, 0px 14px #fff,
+        0px 16px #000000, 0px 18px #fff, 0px 20px #000000;
 }
-#player_top .player_hand {
-    margin-left: -200px;
-    transform: translateY(10px);
+
+#draw_pile:hover {
+    transform: rotate(2deg) translateY(-20px);
 }
-#player_right .player_hand {
-    transform: rotate(-90deg) translateY(-65px) translateX(-390px);
+
+#discard_pile {
+    display: flex;
+    align-items: center;
+}
+
+#discard_pile > img {
+    border: 2px solid #111;
+    cursor: pointer;
+    box-shadow: 2px 2px #000000;
+    border-radius: 7px;
+    margin-left: 15px;
+    position: absolute;
+}
+
+.comments-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    text-align: center;
+    background: #ffffff;
+    padding: 0 15px 0 15px;
+    border: 2px solid #111;
+    box-shadow: 10px 10px #000000;
+}
+
+.enter-comments {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+
+#comment-button {
+    border: 0px solid #00000000;
+    background: #ffffff;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-size: 20px;
+    margin: 15px 0 15px 0;
+    width: 70px;
+}
+
+#messages {
+    margin-top: 10px;
+    height: 45vh;
+    width: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    scroll-behavior: smooth;
+}
+
+div[id^="message-"] {
+    padding: 15px;
+    border: 1px solid rgba(17, 17, 17, 0.466);
+    border-radius: 8px;
+    margin: 5px 0 5px 0;
+    text-align: left;
+    display: grid;
+    grid-template-rows: 0.3fr 1fr;
+    gap: 20px;
+    grid-template-areas:
+        "author created"
+        "comment comment";
+}
+
+.author-text {
+    color: #8d61f5;
+    font-weight: bold;
+    display: flex;
+    align-items: flex-end;
+}
+
+.date-posted {
+    display: flex;
+    font-size: 16px;
+    text-align: right;
+}
+
+.comment-text {
+    margin: 0;
+    padding: 0;
+    grid-area: comment;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

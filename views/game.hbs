@@ -3,126 +3,32 @@
     <div class="game">
         <div class="warpper-game-area">
             <div class="game-area">
-                <div class="game-field perspective red">
-                    <div id="player">You <br>
-                        Lobby Name: {{lobbyName}}<br>
-                        Max# Players: {{maxPlayers}} <br>
-                        Time Limit: {{timeLimit}} minutes <br>
+                <div class="lobby-name"> Lobby Name:{{lobbyName}}</div>
 
-                        <div class="player_hand">
-                            <div class="card red" data-key="0">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card red" data-key="1">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card blue" data-key="0">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card blue" data-key="1">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card yellow">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card green">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card black">
-                                <div class="bckg"></div>
-                            </div>
+                <input id="button-game" onclick="play()" value="Start" />
+                <div id="game-field">
+
+                    <div id="player">You
+                        <div id="player_hand">
                         </div>
                     </div>
-                    <div id="player_left">Left Player<div class="player_hand">
-                            <div class="card turned" data-index="0">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card turned" data-index="1">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card turned" data-index="2">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card turned" data-index="3">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card turned" data-index="4">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card turned" data-index="5">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card turned" data-index="6">
-                                <div class="bckg"></div>
-                            </div>
+
+                    <div id="player_top">Opponent
+                        <div id="player_hand_top">
+
                         </div>
                     </div>
-                    <div id="player_top">Top Player<div class="player_hand">
-                            <div class="card turned" data-index="0">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card turned" data-index="1">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card turned" data-index="2">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card turned" data-index="3">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card turned" data-index="4">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card turned" data-index="5">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card turned" data-index="6">
-                                <div class="bckg"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="player_right">Right Player<div class="player_hand">
-                            <div class="card turned" data-index="0">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card turned" data-index="1">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card turned" data-index="2">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card turned" data-index="3">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card turned" data-index="4">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card turned" data-index="5">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card turned" data-index="6">
-                                <div class="bckg"></div>
-                            </div>
-                        </div>
-                    </div>
+
                     <div id="piles_area">
-                        <div id="draw_pile">
-                            <div class="card turned top-card">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card turned pile">
-                                <div class="bckg"></div>
-                            </div>
+                        <div id="draw_pile" onclick="drawCard()">
+                            <img src="/public/images/cards/card_back.png" alt="draw pile" />
                         </div>
+
                         <div id="discard_pile">
-                            <div class="card top-card red">
-                                <div class="bckg"></div>
-                            </div>
-                            <div class="card pile">
-                                <div class="bckg"></div>
-                            </div>
+
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

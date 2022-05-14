@@ -602,25 +602,29 @@ form {
 .lobby-name {
     padding: 30px;
 }
-#piles_area {
+#piles-area {
     grid-area: 2/2;
 }
 #player {
     grid-area: 3/2;
 }
 
-#player_top {
+#player-top {
     grid-area: 1/2;
 }
+#player-hand-top-top {
+    position: absolute;
+}
 
-#player_hand,
-#player_hand_top {
+#player-hand,
+#player-hand-top {
     position: relative;
     display: flex;
 }
 
-#player_hand > img,
-#player_hand_top > img {
+#player-hand > img,
+#player-hand-top > img,
+#player-hand-top-top > img {
     border: 2px solid #111;
     cursor: pointer;
     box-shadow: 2px 2px #000000;
@@ -628,17 +632,17 @@ form {
     margin-right: 8px;
 }
 
-#player #player_hand > img:hover {
+#player #player-hand > img:hover {
     transform: rotate(5deg) translateY(-20px);
 }
 
-#piles_area {
+#piles-area {
     display: flex;
     align-items: center;
     margin-left: -150px;
 }
 
-#draw_pile {
+#draw-pile {
     cursor: pointer;
     display: flex;
     align-self: center;
@@ -649,16 +653,16 @@ form {
         0px 16px #000000, 0px 18px #fff, 0px 20px #000000;
 }
 
-#draw_pile:hover {
+#draw-pile:hover {
     transform: rotate(2deg) translateY(-20px);
 }
 
-#discard_pile {
+#discard-pile {
     display: flex;
     align-items: center;
 }
 
-#discard_pile > img {
+#discard-pile > img {
     border: 2px solid #111;
     cursor: pointer;
     box-shadow: 2px 2px #000000;

@@ -67,10 +67,13 @@ function play() {
     for (i = 0; i < 7; i++) {
         var x = document.createElement("IMG");
         var y = document.createElement("IMG");
-        y.setAttribute("src", cards[0]);
+        var z = document.createElement("IMG");
         x.setAttribute("src", cards[getRndInteger(1, 54)]);
-        document.getElementById("player_hand").appendChild(x);
-        document.getElementById("player_hand_top").appendChild(y);
+        y.setAttribute("src", cards[getRndInteger(1, 54)]);
+        z.setAttribute("src", cards[0]);
+        document.getElementById("player-hand").appendChild(x);
+        document.getElementById("player-hand-top").appendChild(y);
+        document.getElementById("player-hand-top-top").appendChild(z);
     }
 }
 
@@ -79,7 +82,7 @@ function drawCard() {
     for (i = 0; i < 1; i++) {
         var x = document.createElement("IMG");
         x.setAttribute("src", cards[getRndInteger(1, 54)]);
-        document.getElementById("discard_pile").appendChild(x);
+        document.getElementById("discard-pile").appendChild(x);
     }
 }
 

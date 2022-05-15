@@ -573,12 +573,21 @@ form {
     justify-items: center;
     grid-template-columns: 400px 450px 400px;
     grid-template-rows: 200px 300px 250px;
-    display: none;
+    display: grid;
 }
 
+#button-game-cont {
+    position: absolute;
+    background: white;
+    width: 1250px;
+    height: 750px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
 #button-game {
-    position: relative;
-    margin: 320px;
     border: 2px solid #111;
     background-color: rgb(255, 72, 72);
     color: #111;
@@ -590,6 +599,7 @@ form {
     font-family: "Chakra Petch", sans-serif;
     box-shadow: 5px 5px #000000;
     transition: all 0.12s ease-in-out;
+    z-index: 5;
 }
 
 #button-game:focus {

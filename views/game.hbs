@@ -5,7 +5,10 @@
             <div class="game-area">
                 <div class="lobby-name"> Lobby Name:{{lobbyName}}</div>
 
-                <input id="button-game" onclick="play()" value="Start" />
+                <div id="button-game-cont">
+                    <input id="button-game" onclick="play()" value="Start" />
+                    </div>
+
                 <form id="form" method="POST" action="/game/playRound" enctype="application/x-www-form-urlencoded">
                     <div id="game-field">
 
@@ -22,9 +25,10 @@
                                 <input type="hidden" id="card_5" name="c6" value=""></input>
                                 <input type="hidden" id="card_6" name="c7" value=""></input>
                             </div>
-                            
+
                             {{!-- Which card is being selected --}}
-                            <button type="button" onclick="displayRadioValue()">number selected <div id="result"></div></button>
+                            <button type="button" onclick="displayRadioValue()">number selected <div id="result"></div>
+                                </button>
                         </div>
 
                         <div id="player_top">Opponent

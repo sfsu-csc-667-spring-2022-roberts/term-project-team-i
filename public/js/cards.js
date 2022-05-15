@@ -62,7 +62,7 @@ cards[54] = "/public/images/cards/wild_pick_four.png";
 
 function play() {
     document.getElementById("button-game").style.display = "none";
-    document.getElementById("game-field").style.display = "grid";
+    document.getElementById("button-game-cont").style.display = "none";
     var i;
     for (i = 0; i < 7; i++) {
         var x = document.createElement("IMG");
@@ -79,10 +79,10 @@ function play() {
         radBtn.setAttribute("type", "radio");
         radBtn.setAttribute("value", randNumX);
         radBtn.setAttribute("name", "card_radio_btn");
-        radBtn.setAttribute("id", "card_"+i);
+        radBtn.setAttribute("id", "card_" + i);
 
         // placing card values in html input form
-        document.getElementById("card_"+i).setAttribute("value",randNumX);
+        document.getElementById("card_" + i).setAttribute("value", randNumX);
 
         //x.appendChild(radBtn);
         var radLabel = document.createElement("label");

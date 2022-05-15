@@ -87,11 +87,7 @@ function play() {
 
         radLabel.append(x);
 
-        
-
         radBtn.append(radLabel);
-
-        
 
         //document.getElementById("player_hand").appendChild(x);
         document.getElementById("player_hand").appendChild(radBtn);

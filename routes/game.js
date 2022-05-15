@@ -10,14 +10,20 @@ router.post('/create', (req,res,next)=> {
     // let cpassword = req.body.cpassword;
 
     let lobbyName = req.body.lobbyName;
-    let maxPlayers = req.body.maxPlayers;
-    let timeLimit = req.body.timeLimit;
+    //let maxPlayers = req.body.maxPlayers;
+    //let timeLimit = req.body.timeLimit;
+
+    let username = req.session.username;
+    let userId = req.session.userId;
+
+    console.log(username);
+    console.log(userId);
 
     let isActive = 1;
 
     console.log(lobbyName);
-    console.log(maxPlayers);
-    console.log(timeLimit);
+    //console.log(maxPlayers);
+    //console.log(timeLimit);
 
     //I have the data from the for right here.
 
@@ -41,6 +47,22 @@ router.post('/create', (req,res,next)=> {
       }
     })
     .then(([results, fields]) => {
+        // here is where we should
+        // db query for insert game, user1=req.session.user
+        // user2=null
+        // this will establish there is a game with a 
+        // user associated to it 
+        // 
+        // then when we load the game page for any user
+        // we will check the game table to see if there is a 
+        // game with userID field == req.session.userID
+        // from here, we will be verifying if the current user 
+        // alraedy belongs to a game, or if they should be be redirected
+        // to the /lobby page instead.
+
+        // 1 - write query to push INSERT INTO game (game_fields), 
+
+
         // after user creates a game successfully - they are redirected to that game.
         // ****
         //here, we can build a json response object with res.json({fields: values})
@@ -86,5 +108,13 @@ router.post('/create', (req,res,next)=> {
     }); 
     */
   }); 
+
+  router.post('/playRound', (req, res, next) => {
+    let lp = req.body.lastPlayed;
+    console.log("last played: "+lp);
+
+    let cardSelection = req.body.card_radio_btn;
+    console.log("card selection: "+cardSelection);
+  });
 
   module.exports = router;

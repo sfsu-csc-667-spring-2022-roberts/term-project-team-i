@@ -7,27 +7,30 @@
 
                 <input id="button-game" onclick="play()" value="Start" />
                 <div id="game-field">
-
-                    <div id="player">You
-                        <div id="player_hand">
-                        </div>
-                    </div>
-
-                    <div id="player_top">Opponent
-                        <div id="player_hand_top">
-
-                        </div>
-                    </div>
-
-                    <div id="piles_area">
-                        <div id="draw_pile" onclick="drawCard()">
-                            <img src="/public/images/cards/card_back.png" alt="draw pile" />
+                    <form id="form" method="POST" action="/game/playRound" enctype="application/x-www-form-urlencoded">
+                        <div id="player">You
+                            <input id="play-card-button" type="submit" value="Play Card"/>
+                            <div id="player_hand">
+                            </div>
                         </div>
 
-                        <div id="discard_pile">
+                        <div id="player_top">Opponent
+                            <div id="player_hand_top">
 
+                            </div>
                         </div>
-                    </div>
+
+                        <div id="piles_area">
+                            <div id="draw_pile" onclick="drawCard()">
+                                <img src="/public/images/cards/card_back.png" alt="draw pile" />
+                                <input type="hidden" id="lastPlayed" name="lastPlayed" value=""></input>
+                            </div>
+
+                            <div id="discard_pile">
+
+                            </div>
+                        </div>
+                    </form>
 
                 </div>
             </div>

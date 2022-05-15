@@ -67,10 +67,46 @@ function play() {
     for (i = 0; i < 7; i++) {
         var x = document.createElement("IMG");
         var y = document.createElement("IMG");
-        y.setAttribute("src", cards[0]);
-        x.setAttribute("src", cards[getRndInteger(1, 54)]);
-        document.getElementById("player_hand").appendChild(x);
+
+        var randNumX = getRndInteger(1, 54);
+
+        y.setAttribute("src", cards[getRndInteger(1, 54)]);
+    
+        x.setAttribute("src", cards[randNumX]);
+        x.setAttribute("width", "25");
+        //x.setAttribute("id", "card"+i);
+
+        var radBtn = document.createElement("input");
+        radBtn.setAttribute("type", "radio");
+        radBtn.setAttribute("value", randNumX);
+        radBtn.setAttribute("name", "card_radio_btn");
+
+        //x.appendChild(radBtn);
+        var radLabel = document.createElement("label");
+        radLabel.setAttribute("for", "card_radio_btn");
+
+        radLabel.append(x);
+
+        
+
+        radBtn.append(radLabel);
+
+        
+
+        //document.getElementById("player_hand").appendChild(x);
+        document.getElementById("player_hand").appendChild(radBtn);
         document.getElementById("player_hand_top").appendChild(y);
+
+        //document.getElementsByName("card_radio_btn").appendChild(radLabel);
+
+        //document.getElementById("card"+i).appendChild(radN)
+
+        // creating input to be read by form.
+
+
+        // //attaching radio buttons to each player card
+        // <input type="radio" name="sex" value="male" id="male-radio">
+        // <label for="male-radio"><img src="http://www.cksinfo.com/clipart/signssymbols/iconman.png" width="20"></label>
     }
 }
 
@@ -78,8 +114,22 @@ function drawCard() {
     var i;
     for (i = 0; i < 1; i++) {
         var x = document.createElement("IMG");
-        x.setAttribute("src", cards[getRndInteger(1, 54)]);
+        //var lp = document.createElement("input");
+       // lp.setAttribute("type", "hidden");
+        
+
+        var randCardNum = getRndInteger(1, 54);
+        //lp.setAttribute("value", randCardNum);
+        console.log("randCard: "+randCardNum);
+
+        //<input type="text" id="fname" name="fname" value="John"></input>
+        // x.setAttribute("src", cards[getRndInteger(1, 54)]);
+        x.setAttribute("src", cards[randCardNum]);
+        //lp.setAttribute("name", "lastPlayed");
+        document.getElementById("lastPlayed").setAttribute("value", randCardNum);
         document.getElementById("discard_pile").appendChild(x);
+
+        
     }
 }
 

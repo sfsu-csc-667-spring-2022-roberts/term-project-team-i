@@ -223,10 +223,19 @@ router.post('/create', (req,res,next)=> {
 
 
     console.log("valid play? "+vp);
-    // res.render("game", { title:lobbyName, 
-    //   lobbyName: lobbyName,
-    //   validPlay: validPlay
-    // });
+
+    if(vp){
+      res.render("game", { title:lobbyName, 
+        lobbyName: lobbyName,
+        validPlay: vp
+      });
+    }
+    else{
+      res.render("game", { title:lobbyName, 
+        lobbyName: lobbyName,
+        validPlay: false
+      });
+    }
 
   });
 

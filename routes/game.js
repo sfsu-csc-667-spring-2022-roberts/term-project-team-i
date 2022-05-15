@@ -110,11 +110,124 @@ router.post('/create', (req,res,next)=> {
   }); 
 
   router.post('/playRound', (req, res, next) => {
+    let lobbyName = req.body.lobbyName;
+    let vp = false;
+
     let lp = req.body.lastPlayed;
     console.log("last played: "+lp);
 
-    let cardSelection = req.body.card_radio_btn;
-    console.log("card selection: "+cardSelection);
+    let cc = req.body.card_radio_btn; //current card cc
+    console.log("card selection: "+cc);
+
+    //creating lists for checking
+    var nil_list = [1,14,27,40];    //0's
+    var one_list = [2,15,28,41];    //1's
+    var two_list = [3,16,29,42];    //2's
+    var three_list = [4,17,30,43];  //3's
+    var four_list = [5,18,31,44];   //4's
+    var five_list = [6,19,32,45];   //5's
+    var six_list = [7,20,33,46];    //6's
+    var seven_list = [8,21,34,47];  //7's
+    var eight_list = [9,22,35,48];  //8's
+    var nine_list = [10,23,36,49];  //9's
+
+    //if lp is blue, check if cc is blue
+    if(lp>0 && lp<11){
+      if(cc>0 && cc<11){
+        vp = true;
+      }
+    }
+
+    //if lp is green, check if cc is green
+    if(lp>14 && lp<23){
+      if(cc>14 && cc<23){
+        vp = true;
+      }
+    }
+
+    //if lp is blue, check if cc is blue
+    if(lp>27 && lp<36){
+      if(cc>27 && cc<36){
+        vp = true;
+      }
+    }
+
+    //if lp is blue, check if cc is blue
+    if(lp>40 && lp<49){
+      if(cc>40 && cc<49){
+        vp = true;
+      }
+    }
+
+        
+    // checking against 0-cards of other colors
+    if(nil_list.indexOf(lp)>=0){
+      if(nil_list.indexOf(cc>=0)){
+        vp = true;
+      }
+    }
+
+    if(one_list.indexOf(lp)>=0){
+      if(one_list.indexOf(cc>=0)){
+        vp = true;
+      }
+    }
+
+    if(two_list.indexOf(lp)>=0){
+      if(two_list.indexOf(cc>=0)){
+        vp = true;
+      }
+    }
+
+    if(three_list.indexOf(lp)>=0){
+      if(three_list.indexOf(cc>=0)){
+        vp = true;
+      }
+    }
+
+    if(four_list.indexOf(lp)>=0){
+      if(four_list.indexOf(cc>=0)){
+        vp = true;
+      }
+    }
+
+    if(five_list.indexOf(lp)>=0){
+      if(five_list.indexOf(cc>=0)){
+        vp = true;
+      }
+    }
+
+    if(six_list.indexOf(lp)>=0){
+      if(six_list.indexOf(cc>=0)){
+        vp = true;
+      }
+    }
+
+    if(seven_list.indexOf(lp)>=0){
+      if(seven_list.indexOf(cc>=0)){
+        vp = true;
+      }
+    }
+
+    if(eight_list.indexOf(lp)>=0){
+      if(eight_list.indexOf(cc>=0)){
+        vp = true;
+      }
+    }
+
+    if(nine_list.indexOf(lp)>=0){
+      if(nine_list.indexOf(cc>=0)){
+        vp = true;
+      }
+    }
+
+
+    console.log("valid play? "+vp);
+    // res.render("game", { title:lobbyName, 
+    //   lobbyName: lobbyName,
+    //   validPlay: validPlay
+    // });
+
   });
 
   module.exports = router;

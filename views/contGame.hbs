@@ -4,15 +4,17 @@
         <div class="warpper-game-area">
             <div class="game-area">
                 <div class="lobby-name"> Lobby Name:{{lobbyName}}</div>
-
-                <input id="button-game" onclick="play()" value="Start" />
                 <form id="form" method="POST" action="/game/playRound" enctype="application/x-www-form-urlencoded">
                     <div id="game-field">
 
                         <div id="player">You
                             <input id="play-card-button" type="submit" value="Play Card" />
                             <div id="player_hand">
-
+                                Values from backend: 
+                                {{c1}}, {{c2}}, {{c3}}, {{c4}}, {{c5}}, {{c6}}, {{c7}} <br>
+                                value to remove from player hand: {{valueToRemove}}<br>
+                                validPlay? {{validPlay}} <br>
+                                lastPlayed: {{lastPlayed}}
                                 {{!-- these values are filled by cards.js --}}
                                 <input type="hidden" id="card_0" name="c1" value=""></input>
                                 <input type="hidden" id="card_1" name="c2" value=""></input>

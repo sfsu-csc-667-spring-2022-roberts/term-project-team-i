@@ -79,6 +79,10 @@ function play() {
         radBtn.setAttribute("type", "radio");
         radBtn.setAttribute("value", randNumX);
         radBtn.setAttribute("name", "card_radio_btn");
+        radBtn.setAttribute("id", "card_"+i);
+
+        // placing card values in html input form
+        document.getElementById("card_"+i).setAttribute("value",randNumX);
 
         //x.appendChild(radBtn);
         var radLabel = document.createElement("label");
@@ -132,3 +136,7 @@ function drawCard() {
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
+
+// function collectHand(){
+//     document.getElementById("card_"+i).setAttribute("value",randCardNum);
+// }

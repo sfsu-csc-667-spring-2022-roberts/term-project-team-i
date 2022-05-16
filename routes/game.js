@@ -101,6 +101,9 @@ router.post("/create", (req, res, next) => {
     }); 
     */
 });
+router.post("/join",(req,res, next ) => {
+    
+});
 
 router.post("/playRound", (req, res, next) => {
     let c1 = parseInt(req.body.c1);

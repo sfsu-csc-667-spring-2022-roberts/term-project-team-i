@@ -74,7 +74,6 @@ function play() {
         y.setAttribute("src", cards[getRndInteger(1, 54)]);
         z.setAttribute("src", cards[0]);
         x.setAttribute("src", cards[randNumX]);
-        //x.setAttribute("id", "card"+i);
 
         var radBtn = document.createElement("input");
         radBtn.setAttribute("type", "radio");
@@ -87,24 +86,13 @@ function play() {
 
         //x.appendChild(radBtn);
         var radLabel = document.createElement("label");
-        // radLabel.setAttribute("for", "card_radio_btn");
 
         radLabel.append(radBtn);
         radLabel.append(x);
 
-        //document.getElementById("player_hand").appendChild(x);
         document.getElementById("player_hand").appendChild(radLabel);
         document.getElementById("player_hand_top").appendChild(y);
         document.getElementById("player_hand_top_top").appendChild(z);
-        //document.getElementsByName("card_radio_btn").appendChild(radLabel);
-
-        //document.getElementById("card"+i).appendChild(radN)
-
-        // creating input to be read by form.
-
-        // //attaching radio buttons to each player card
-        // <input type="radio" name="sex" value="male" id="male-radio">
-        // <label for="male-radio"><img src="http://www.cksinfo.com/clipart/signssymbols/iconman.png" width="20"></label>
     }
 }
 
@@ -112,17 +100,12 @@ function drawCard() {
     var i;
     for (i = 0; i < 1; i++) {
         var x = document.createElement("IMG");
-        //var lp = document.createElement("input");
-        // lp.setAttribute("type", "hidden");
 
         var randCardNum = getRndInteger(1, 54);
-        //lp.setAttribute("value", randCardNum);
+
         console.log("randCard: " + randCardNum);
 
-        //<input type="text" id="fname" name="fname" value="John"></input>
-        // x.setAttribute("src", cards[getRndInteger(1, 54)]);
         x.setAttribute("src", cards[randCardNum]);
-        //lp.setAttribute("name", "lastPlayed");
         document.getElementById("lastPlayed").setAttribute("value", randCardNum);
         document.getElementById("discard_pile").appendChild(x);
     }

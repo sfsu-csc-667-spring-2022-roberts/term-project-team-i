@@ -5,17 +5,11 @@
         </div>
         <nav class="navbar-items">
             {{#if logged}}
-                <ul class="main-nav">
-                    <li>
-                        <a id = "log-out" href="/logout">Logout</a>
-                    </li>
-                    <li>
-                        <a href="/lobby">Lobby</a>
-                    </li>
-                    <li>
-                        <a href="/game">Game</a>
-                    </li>                
-            {{else}}
+            <ul class="main-nav">
+                <li>
+                    <a id="log-out" href="/logout">Logout</a>
+                </li>
+                {{else}}
                 <ul class="main-nav">
                     <li>
                         <a href="/login">Login</a>
@@ -24,7 +18,7 @@
                         <a href="/signup">SignUp</a>
                     </li>
                 </ul>
-            {{/if}}
+                {{/if}}
         </nav>
     </div>
 </div>

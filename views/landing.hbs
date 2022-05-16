@@ -26,9 +26,9 @@
                         </div>
                     </li>
                     <li class="rule">
-                        Setup
+                        Rule #2
                         <div class="desc">
-                            The game is for 2-10 players. Every player starts with seven cards, and they are dealt face down. The
+                            The game is for 2 players. Every player starts with seven cards, and they are dealt face down. The
                             rest of the cards are placed in a Draw Pile face down. Next to the pile a space should be designated
                             for a Discard Pile. The top card should be placed in the Discard Pile, and the game begins!
 
@@ -37,25 +37,28 @@
                     <li class="rule">
                         Rule #3
                         <div class="desc">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita incidunt corporis distinctio esse
-                            quas pariatur voluptate placeat voluptatum quisquam porro unde, error nisi doloribus beatae autem
-                            repudiandae aut illo animi!
+                            The Gameplay follows a clockwise direction. Every player views his/her cards and tries to match the
+                            card in the Discard Pile. You have to match either by the number, color, or the symbol/Action. For
+                            instance, if the Discard Pile has a red card that is an 8 you have to place either a red card or a
+                            card with an 8 on it. You can also play a Wild card
                         </div>
                     </li>
                     <li class="rule">
                         Rule #4
                         <div class="desc">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita incidunt corporis distinctio esse
-                            quas pariatur voluptate placeat voluptatum quisquam porro unde, error nisi doloribus beatae autem
-                            repudiandae aut illo animi!
+                            If the player has no matches or they choose not to play any of their cards even though they might have
+                            a match, they must draw a card from the Draw pile. If that card can be played, play it. Otherwise, the
+                            game moves on to the next person in turn. You can also play a Wild card, or a Wild Draw Four card on
+                            your turn.
                         </div>
                     </li>
                     <li class="rule">
                         Rule #5
                         <div class="desc">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita incidunt corporis distinctio esse
-                            quas pariatur voluptate placeat voluptatum quisquam porro unde, error nisi doloribus beatae autem
-                            repudiandae aut illo animi!
+                            The game continues until a player has one card left. The moment a player has just one card they must
+                            yell “UNO!”. If they are caught not saying “Uno” by another player before any card has been played,
+                            the player must draw two new cards. Once a player has no cards remaining, the game is over, and the
+                            player wins.
                         </div>
                     </li>
                 </ul>
@@ -63,12 +66,12 @@
         </div>
         <div class="welcome-text">
             Welcome to UNO
-            {{#if logged}}
-             {{else}}
-            <div class="welcome-text-sub"><a class="txt-shd" href="/signup">SignUp</a>
-                or
-                <a class="txt-shd" href="/login">Login</a>
-                to Play</div>
+            {{#if logged}}{{else}}
+                <div class="welcome-text-sub"><a class="txt-shd" href="/signup">SignUp</a>
+                    or
+                    <a class="txt-shd" href="/login">Login</a>
+                    to Play
+                </div>
             {{/if}}
         </div>
     </div>

@@ -8,9 +8,12 @@ var hbs = require("express-handlebars");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
-var sessions = require('express-session');
-var mysqlSession = require('express-mysql-session')(sessions);
-var getAvailableGames = require('./middleware/availableGamesMiddleware').getAvailableGames;
+var sessions = require("express-session");
+var flash = require("express-flash");
+var mysqlSession = require("express-mysql-session")(sessions);
+var isLoggedIn = require("./middleware/authMiddleware").userIsLoggedIn;
+var getAvailableGames = require("./middleware/availableGamesMiddleware").getAvailableGames;
+// var { requireAuth } = require("./middleware/authMiddleware");
 //TODO - uncomment the routers below as you are writing the routes
 //      and testing them.
 
@@ -60,22 +63,27 @@ var mysqlSessionStore = new mysqlSession(
     {
         /*using default options*/
     },
-    require('./db/database.js'));
-app.use(sessions({
-    key: "csid",
-    secret: "this is a secret",
-    store: mysqlSessionStore,
-    resave: false,
-    saveUninitialized: false
-}))
+    require("./db/database.js")
+);
+app.use(
+    sessions({
+        key: "csid",
+        secret: "this is a secret",
+        store: mysqlSessionStore,
+        resave: false,
+        saveUninitialized: false,
+    })
+);
+
 app.use(logger("dev"));
+app.use(flash());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use("/public", express.static(path.join(__dirname, "public")));
 
-app.use((req,res,next) => {
-    if(req.session.username){
+app.use((req, res, next) => {
+    if (req.session.username) {
         res.locals.logged = true;
     }
     next();
@@ -91,13 +99,13 @@ app.get("/login", function (req, res) {
 });
 
 app.get("/signup", function (req, res) {
-    res.render("signup", { title: "Join Us!", message: req.query.message});
+    res.render("signup", { title: "Join Us!", message: req.query.message });
 });
-
+app.use("/lobby", isLoggedIn);
 app.get("/lobby", getAvailableGames, function (req, res, next) {
     res.render("lobby", { title: "Join or Create a game!" });
 });
-
+app.use("/game", isLoggedIn);
 app.get("/game", function (req, res) {
     res.render("game", { title: "Have Fun!" });
 });
@@ -124,6 +132,5 @@ app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render("error");
 });
-
 
 module.exports = app;

@@ -11,7 +11,6 @@
     <script defer type="text/javascript" src="/public/js/formValidation.js"></script>
     <script defer type="text/javascript" src="/public/js/cards.js"></script>
     <script defer type="text/javascript" src="/public/js/chat.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
     <title>{{title}}</title>
 
 </head>
@@ -19,21 +18,21 @@
 <body>
     {{> navbar}}
     {{{body}}}
-    {{> footer}}
     {{#if logged}}
-        <script>
-            let ele = document.getElementById('log-out');
-            if(ele){
-                ele.onclick = (even) => {
-                    fetch('/users/logout',{
-                        method: "POST"
-                    })
-                    .then((data)=>{
+    <script>
+        let ele = document.getElementById('log-out');
+        if (ele) {
+            ele.onclick = (even) => {
+                fetch('/users/logout', {
+                    method: "POST"
+                })
+                    .then((data) => {
                         location.replace('/');
                     })
-                }
             }
-        </script>
+        }
+    </script>
     {{/if}}
 </body>
+
 </html>

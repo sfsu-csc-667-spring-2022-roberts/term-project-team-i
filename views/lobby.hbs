@@ -23,21 +23,21 @@
                 <div class="panel" id="two-panel">
                     <div class="panel-title">Available Lobbies...</div>
                     <div class="panel-sett">
-                       {{#each results}}
-                            {{>gameListing this}}
-                       {{/each}}
+                        {{#each results}}
+                        {{>gameListing this}}
+                        {{/each}}
                     </div>
                 </div>
             </div>
         </div>
 
         <div id="message-container">
-                <form id="send-container">
-                    <input class="input" id="message-input" style="height: 50px;" placeholder="Chat Here!"></input>
-                    <button type="submit" style="height: 50px;" id="send-button">
-                        <i class="fa fa-arrow-up"></i>
-                    </button>
-                </form>
-                <div id="message-text"></div>
-            </div>
+            <form id="send-container">
+                <input class="input" id="message-input" style="height: 50px;" placeholder="Chat Here!"></input>
+                <button type="submit" style="height: 50px;" id="send-button">
+                    <i class="fa fa-arrow-up"></i>
+                </button>
+            </form>
+            <div id="message-text"></div>
+        </div>
 </body>

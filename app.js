@@ -10,7 +10,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var sessions = require('express-session');
 var mysqlSession = require('express-mysql-session')(sessions);
-
+var getAvailableGames = require('./middleware/availableGamesMiddleware').getAvailableGames;
 //TODO - uncomment the routers below as you are writing the routes
 //      and testing them.
 
@@ -94,7 +94,7 @@ app.get("/signup", function (req, res) {
     res.render("signup", { title: "Join Us!", message: req.query.message});
 });
 
-app.get("/lobby", function (req, res) {
+app.get("/lobby", getAvailableGames, function (req, res, next) {
     res.render("lobby", { title: "Join or Create a game!" });
 });
 

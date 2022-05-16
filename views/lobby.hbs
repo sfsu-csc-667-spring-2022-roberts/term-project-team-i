@@ -23,34 +23,9 @@
                 <div class="panel" id="two-panel">
                     <div class="panel-title">Available Lobbies...</div>
                     <div class="panel-sett">
-                        <div>
-                            Lobby Name:
-                            {{lobbyName}}
-                            <input class="button-small" type="submit" name="submit" value="Join" />
-                        </div>
-                        <div>
-                            UNO Lobby 1<br />
-                            6 Max players, Unlimited Time
-                            <input class="button-small" type="submit" name="submit" value="Join" />
-                        </div>
-                        <br />
-                        <div>
-                            UNO Lobby 2<br />
-                            10 Max players, 15 Minute Time Limit
-                            <input class="button-small" type="submit" name="submit" value="Join" />
-                        </div>
-                        <br />
-                        <div>
-                            UNO Lobby 3<br />
-                            4 Max players, Unlimited Time
-                            <input class="button-small" type="submit" name="submit" value="Join" />
-                        </div>
-                        <br />
-                        <div>
-                            UNO Lobby 4<br />
-                            6 Max players, 20 Minute Time Limit
-                            <input class="button-small" type="submit" name="submit" value="Join" />
-                        </div>
+                       {{#each results}}
+                            {{>gameListing this}}
+                       {{/each}}
                     </div>
                 </div>
             </div>

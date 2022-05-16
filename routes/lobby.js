@@ -3,7 +3,7 @@ const req = require('express/lib/request');
 var router = express.Router();
 var db = require('../db/database');
 
-
+/*
 // TODO
 // started, but this is not working yet
 // this should pull available games from the games table in the DB, and pass them to 
@@ -97,7 +97,7 @@ router.get('/lobby', (req,res,next)=> {
         res.render('register', {message: 'Failed to register the new user.'});
       }
     }); 
-    */
+    
   }); 
-
-  module.exports = router;
+ */
+  module.exports = router; 

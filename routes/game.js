@@ -67,7 +67,7 @@ router.post("/create", (req, res, next) => {
             // then, we will write a vanilla javascript function to fill the values by
             // getting the html elements on the /game page by their id.
             // maybe write a function to set each value, the title, players, and time, all separate.
-            res.render("game", { title: lobbyName, lobbyName: lobbyName, maxPlayers: maxPlayers, timeLimit: timeLimit });
+            res.render("game", { title: lobbyName, lobbyName: lobbyName/*, maxPlayers: maxPlayers, timeLimit: timeLimit*/ });
             //} else {
             //res.redirect('/signup?message=Failed to register the new user.');
             //}

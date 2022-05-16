@@ -9,14 +9,14 @@
 
                 <h2 class="heading"> Log In </h2>
 
-                <input class="input" type="text" name="username" placeholder="Username" required />
+                <input id="loginUname" class="input" type="text" name="username" placeholder="Username" required />
 
                 <div class="password-eye">
                     <input id="pwd" class="input" type="password" name="password" placeholder="Password" required />
                     <i class="fa fa-eye" id="togglePassword" onclick="pwdToggle(this)"></i>
                 </div>
 
-                <input class="button" type="submit" name="submit" value="Submit" />
+                <input class="button" type="submit" name="submit" value="Submit" onclick="storeUser()" />
 
                 <p>
                     Not a member yet? Sign up

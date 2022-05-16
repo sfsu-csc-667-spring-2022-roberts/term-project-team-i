@@ -113,6 +113,19 @@ function displayRadioValue() {
         if (ele[i].checked) document.getElementById("result").innerHTML = "Gender: " + ele[i].value;
     }
 }
+
+// function playCard() {
+//     var test = document.getElementById("card_1_img").src;
+//     localStorage.setItem("name", test);
+
+//     document.getElementById("card_1_img").setAttribute("src", "http://localhost:3000/public/images/cards/green_0.png");
+
+//     var test2 = document.getElementById("card_1").value;
+//     localStorage.setItem("name2", test2);
+
+//     // document.getElementById("card_1_img").setAttribute("src", localStorage.getItem("name"));
+// }
+
 function drawCard() {
     var i;
     for (i = 0; i < 1; i++) {
@@ -141,10 +154,9 @@ function getRndInteger(min, max) {
 //     document.getElementById("card_"+i).setAttribute("value",randCardNum);
 // }
 
-function removeCard(){
+function removeCard() {
     let ele = document.getElementById("id_to_remove");
     console.log(ele.value);
-
 
     ele_to_remove.remove();
 }

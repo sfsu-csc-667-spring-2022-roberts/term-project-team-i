@@ -5,49 +5,59 @@
             <div class="game-area">
                 <div class="lobby-name"> Lobby Name:{{lobbyName}}</div>
 
-                <input id="button-game" onclick="play()" value="Start" />
-                <div id="game-field">
+                <div id="button-game-cont">
+                    <input id="button-game" onclick="play()" value="Start" />
+                </div>
 
-                    <div id="player">You
-                        <div id="player-hand">
+                <form id="form" method="POST" action="/game/playRound" enctype="application/x-www-form-urlencoded">
+                    <div id="game-field">
+
+                        <div id="player">You
+                            <input id="play-card-button" type="submit" value="Play Card" />
+                            <div id="player_hand">
+                                {{!-- these values are filled by cards.js --}}
+                                <input type="hidden" id="card_0" name="c1" value=""></input>
+                                <input type="hidden" id="card_1" name="c2" value=""></input>
+                                <input type="hidden" id="card_2" name="c3" value=""></input>
+                                <input type="hidden" id="card_3" name="c4" value=""></input>
+                                <input type="hidden" id="card_4" name="c5" value=""></input>
+                                <input type="hidden" id="card_5" name="c6" value=""></input>
+                                <input type="hidden" id="card_6" name="c7" value=""></input>
+                            </div>
+
+                            {{!-- Which card is being selected --}}
+                            <button type="button" onclick="displayRadioValue()">number selected <div id="result"></div>
+                            </button>
                         </div>
-                    </div>
 
-                    <div id="player-top">Opponent
-                        <div id="player-hand-top">
-                            <div id="player-hand-top-top">
+                        <div id="player_top">Opponent
+                            <div id="player_hand_top">
                             </div>
                         </div>
-                    </div>
 
-                    <div id="piles-area">
-                        <div id="draw-pile" onclick="drawCard()">
-                            <img src="/public/images/cards/card_back.png" alt="draw pile" />
+
+                        <div id="piles_area">
+                            <div id="draw_pile" onclick="drawCard()">
+                                <img src="/public/images/cards/card_back.png" alt="draw pile" />
+                                <input type="hidden" id="lastPlayed" name="lastPlayed" value=""></input>
+                            </div>
+                            <div> valid play? <br> {{validPlay}}</div>
+                            <div id="discard_pile">
+                            </div>
                         </div>
 
-                        <div id="discard-pile">
-
-                        </div>
                     </div>
-
-                </div>
+                </form>
             </div>
         </div>
-        <div class="warpper-game-chat">
-            <input class="radio" id="one" name="group" type="radio" checked />
-            <input class="radio" id="two" name="group" type="radio" />
-            <div class="tabs">
-                <label class="tab" id="one-tab" for="one">Game</label>
-                <label class="tab" id="two-tab" for="two">Global</label>
-            </div>
-            <div class="game-panels">
-                <div class="game-panel" id="one-panel">
-                    <div class="panel-sett">Game Chat</div>
-                </div>
-                <div class="game-panel" id="two-panel">
-                    <div class="panel-sett">Global Chat</div>
-                </div>
-            </div>
+        <div id="message-container-game">
+            <form id="send-container">
+                <input class="input" id="message-input" style="height: 50px;" placeholder="Chat Here!"></input>
+                <button type="submit" style="height: 50px;" id="send-button">
+                    <i class="fa fa-arrow-up"></i>
+                </button>
+            </form>
+            <div id="message-text"></div>
         </div>
     </div>
 </body>

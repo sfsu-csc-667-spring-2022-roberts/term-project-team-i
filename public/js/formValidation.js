@@ -125,3 +125,9 @@ function c_pwdToggle() {
         toggle.type = "password";
     }
 }
+
+function storeUser() {
+    var user = document.getElementById("loginUname").value;
+    localStorage.setItem("user", user);
+    console.log(user);
+}

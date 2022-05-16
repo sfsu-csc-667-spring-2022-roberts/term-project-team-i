@@ -540,12 +540,6 @@ form {
     padding-top: 120px;
 }
 
-.global-chat {
-    padding: 20px 100px 500px 100px;
-    border: black 2px solid;
-    box-shadow: 8px 8px #000000;
-    background-color: #fff;
-}
 .game-area {
     border: black 2px solid;
     text-align: center;
@@ -553,15 +547,6 @@ form {
     background-color: #fff;
     display: flex;
     flex-direction: column;
-}
-.game-panels {
-    border: 2px black solid;
-    min-height: 735px;
-    width: 300px;
-    overflow: hidden;
-    padding: 20px;
-    box-shadow: 8px 8px #000000;
-    background-color: #fff;
 }
 
 /* CARDS STYLES */
@@ -573,12 +558,21 @@ form {
     justify-items: center;
     grid-template-columns: 400px 450px 400px;
     grid-template-rows: 200px 300px 250px;
-    display: none;
+    display: grid;
 }
 
+#button-game-cont {
+    position: absolute;
+    background: white;
+    width: 1250px;
+    height: 750px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
 #button-game {
-    position: relative;
-    margin: 320px;
     border: 2px solid #111;
     background-color: rgb(255, 72, 72);
     color: #111;
@@ -590,6 +584,7 @@ form {
     font-family: "Chakra Petch", sans-serif;
     box-shadow: 5px 5px #000000;
     transition: all 0.12s ease-in-out;
+    z-index: 5;
 }
 
 #button-game:focus {
@@ -670,27 +665,68 @@ form {
     margin-left: 15px;
     position: absolute;
 }
+/* HIDE RADIO */
+[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
 
-.comments-container {
+/* IMAGE STYLES */
+[type="radio"] + img {
+    border: 2px solid #111;
+    cursor: pointer;
+    box-shadow: 2px 2px #000000;
+    border-radius: 7px;
+    margin-right: 8px;
+}
+
+/* CHECKED STYLES */
+[type="radio"]:checked + img {
+    outline: 2px solid #f00;
+}
+
+#message-container {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
     align-items: flex-start;
     text-align: center;
     background: #ffffff;
     padding: 0 15px 0 15px;
     border: 2px solid #111;
     box-shadow: 10px 10px #000000;
+    height: 55vh;
+    overflow-y: auto;
+}
+#message-container-game {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: center;
+    background: #ffffff;
+    padding: 0 15px 0 15px;
+    border: 2px solid #111;
+    box-shadow: 10px 10px #000000;
+    height: 833px;
+    overflow-y: auto;
+}
+#message-text {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
-.enter-comments {
+#send-container {
     display: flex;
     flex-direction: row;
     width: 100%;
     justify-content: center;
 }
 
-#comment-button {
+#send-button {
     border: 0px solid #00000000;
     background: #ffffff;
     text-align: center;
@@ -701,47 +737,13 @@ form {
     width: 70px;
 }
 
-#messages {
+.message {
     margin-top: 10px;
-    height: 45vh;
-    width: 100%;
-    overflow-y: auto;
+    max-width: 315px;
     display: flex;
-    flex-flow: column-reverse nowrap;
-    scroll-behavior: smooth;
-}
-
-div[id^="message-"] {
-    padding: 15px;
-    border: 1px solid rgba(17, 17, 17, 0.466);
-    border-radius: 8px;
-    margin: 5px 0 5px 0;
+    padding: 5px 0 5px 15px;
+    border: 2px solid #111;
+    box-shadow: 3px 3px #000000;
+    overflow: auto;
     text-align: left;
-    display: grid;
-    grid-template-rows: 0.3fr 1fr;
-    gap: 20px;
-    grid-template-areas:
-        "author created"
-        "comment comment";
-}
-
-.author-text {
-    color: #8d61f5;
-    font-weight: bold;
-    display: flex;
-    align-items: flex-end;
-}
-
-.date-posted {
-    display: flex;
-    font-size: 16px;
-    text-align: right;
-}
-
-.comment-text {
-    margin: 0;
-    padding: 0;
-    grid-area: comment;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }

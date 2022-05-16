@@ -1,5 +1,4 @@
-<body>
-
+<body onload="removeCard();">
     <div class="game">
         <div class="warpper-game-area">
             <div class="game-area">
@@ -14,7 +13,43 @@
                                 {{c1}}, {{c2}}, {{c3}}, {{c4}}, {{c5}}, {{c6}}, {{c7}} <br>
                                 value to remove from player hand: {{valueToRemove}}<br>
                                 validPlay? {{validPlay}} <br>
-                                lastPlayed: {{lastPlayed}}
+                                lastPlayed: {{lastPlayed}} <br>
+                                c1_img: {{c1_img}}
+
+                                {{!-- MUST write function in backend to pass FULL src img value to frontend.
+                                THEN fill the {{c1_image}} tage into src={{c1_image}}. --}}
+
+                                <input type="hidden" value={{id_to_remove}} id="id_to_remove">                                
+
+                                <label>
+                                    <input type="radio" value={{c1}} name="card_radio_btn" id="card_1">
+                                    <img src={{c1_img}}>
+                                </label>
+                                <label>
+                                    <input type="radio" value={{c2}} name="card_radio_btn" id="card_2">
+                                    <img src={{c2_img}}>
+                                </label>
+                                <label>
+                                    <input type="radio" value={{c3}} name="card_radio_btn" id="card_3">
+                                    <img src={{c3_img}}>
+                                </label>
+                                <label>
+                                    <input type="radio" value={{c4}} name="card_radio_btn" id="card_4">
+                                    <img src={{c4_img}}>
+                                </label>
+                                <label>
+                                    <input type="radio" value={{c5}} name="card_radio_btn" id="card_5">
+                                    <img src={{c5_img}}>
+                                </label>
+                                <label>
+                                    <input type="radio" value={{c6}} name="card_radio_btn" id="card_6">
+                                    <img src={{c6_img}}>
+                                </label>
+                                <label>
+                                    <input type="radio" value={{c7}} name="card_radio_btn" id="card_7">
+                                    <img src={{c7_img}}>
+                                </label>
+
                                 {{!-- these values are filled by cards.js --}}
                                 <input type="hidden" id="card_0" name="c1" value=""></input>
                                 <input type="hidden" id="card_1" name="c2" value=""></input>
@@ -42,6 +77,10 @@
                             </div>
                             <div> valid play? <br> {{validPlay}}</div>
                             <div id="discard_pile">
+                                <label>
+                                    <input type="radio" value={{lastPlayed}} name="lp_card">
+                                    <img src={{lp_img}}>
+                                </label>
                             </div>
                         </div>
 

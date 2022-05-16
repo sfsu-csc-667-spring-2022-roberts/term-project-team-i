@@ -140,3 +140,11 @@ function getRndInteger(min, max) {
 // function collectHand(){
 //     document.getElementById("card_"+i).setAttribute("value",randCardNum);
 // }
+
+function removeCard(){
+    let ele = document.getElementById("id_to_remove");
+    console.log(ele.value);
+
+
+    ele_to_remove.remove();
+}

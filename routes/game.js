@@ -2,6 +2,7 @@ var express = require('express');
 const req = require('express/lib/request');
 var router = express.Router();
 var db = require('../db/database');
+const { TableName } = require('pg-promise');
 
 router.post('/create', (req,res,next)=> {
     // let username = req.body.username;
@@ -119,11 +120,7 @@ router.post('/create', (req,res,next)=> {
     let c7 = parseInt(req.body.c7);
 
     let cardList = [c1,c2,c3,c4,c5,c6,c7];
-
-    // todo - remove the card from users hand if it is a valid play
-    
-
-
+  
     let lobbyName = req.body.lobbyName;
     let vp = false;
 
@@ -140,9 +137,6 @@ router.post('/create', (req,res,next)=> {
     console.log("match val: "+match);
 
     let valueToRemove = cardList[match];
-    
-    
-
 
     //creating lists for checking
     var nil_list = [1,14,27,40];    //0's
@@ -262,11 +256,87 @@ router.post('/create', (req,res,next)=> {
       }
     }
 
+    // creating array for card values vs Table
+    var cards = [];
+    cards[0] = "/public/images/cards/card_back.png";
+    cards[1] = "/public/images/cards/blue_0.png";
+    cards[2] = "/public/images/cards/blue_1.png";
+    cards[3] = "/public/images/cards/blue_2.png";
+    cards[4] = "/public/images/cards/blue_3.png";
+    cards[5] = "/public/images/cards/blue_4.png";
+    cards[6] = "/public/images/cards/blue_5.png";
+    cards[7] = "/public/images/cards/blue_6.png";
+    cards[8] = "/public/images/cards/blue_7.png";
+    cards[9] = "/public/images/cards/blue_8.png";
+    cards[10] = "/public/images/cards/blue_9.png";
+    cards[11] = "/public/images/cards/blue_picker.png";
+    cards[12] = "/public/images/cards/blue_reverse.png";
+    cards[13] = "/public/images/cards/blue_skip.png";
+    
+    cards[14] = "/public/images/cards/green_0.png";
+    cards[15] = "/public/images/cards/green_1.png";
+    cards[16] = "/public/images/cards/green_2.png";
+    cards[17] = "/public/images/cards/green_3.png";
+    cards[18] = "/public/images/cards/green_4.png";
+    cards[19] = "/public/images/cards/green_5.png";
+    cards[20] = "/public/images/cards/green_6.png";
+    cards[21] = "/public/images/cards/green_7.png";
+    cards[22] = "/public/images/cards/green_8.png";
+    cards[23] = "/public/images/cards/green_9.png";
+    cards[24] = "/public/images/cards/green_picker.png";
+    cards[25] = "/public/images/cards/green_reverse.png";
+    cards[26] = "/public/images/cards/green_skip.png";
+    
+    cards[27] = "/public/images/cards/red_0.png";
+    cards[28] = "/public/images/cards/red_1.png";
+    cards[29] = "/public/images/cards/red_2.png";
+    cards[30] = "/public/images/cards/red_3.png";
+    cards[31] = "/public/images/cards/red_4.png";
+    cards[32] = "/public/images/cards/red_5.png";
+    cards[33] = "/public/images/cards/red_6.png";
+    cards[34] = "/public/images/cards/red_7.png";
+    cards[35] = "/public/images/cards/red_8.png";
+    cards[36] = "/public/images/cards/red_9.png";
+    cards[37] = "/public/images/cards/red_picker.png";
+    cards[38] = "/public/images/cards/red_reverse.png";
+    cards[39] = "/public/images/cards/red_skip.png";
+    
+    cards[40] = "/public/images/cards/yellow_0.png";
+    cards[41] = "/public/images/cards/yellow_1.png";
+    cards[42] = "/public/images/cards/yellow_2.png";
+    cards[43] = "/public/images/cards/yellow_3.png";
+    cards[44] = "/public/images/cards/yellow_4.png";
+    cards[45] = "/public/images/cards/yellow_5.png";
+    cards[46] = "/public/images/cards/yellow_6.png";
+    cards[47] = "/public/images/cards/yellow_7.png";
+    cards[48] = "/public/images/cards/yellow_8.png";
+    cards[49] = "/public/images/cards/yellow_9.png";
+    cards[50] = "/public/images/cards/yellow_picker.png";
+    cards[51] = "/public/images/cards/yellow_reverse.png";
+    cards[52] = "/public/images/cards/yellow_skip.png";
+    
+    cards[53] = "/public/images/cards/wild_color_changer.png";
+    cards[54] = "/public/images/cards/wild_pick_four.png";
+
+
+    c1_img = cards[c1];
+    c2_img = cards[c2];
+    c3_img = cards[c3];
+    c4_img = cards[c4];
+    c5_img = cards[c5];
+    c6_img = cards[c6];
+    c7_img = cards[c7];
+
+    console.log(c1_img);
+
+    let id_to_remove = "card_"+(match+1);
+
+    console.log("id_to_remove:"+id_to_remove);
+
+
 
     console.log("valid play? "+vp);
-
     if(vp){
-      
       //res.render("game", { title:lobbyName, 
       res.render("contGame", { title:lobbyName,
         lobbyName: lobbyName,
@@ -279,7 +349,15 @@ router.post('/create', (req,res,next)=> {
         c4: c4,
         c5: c5,
         c6: c6,
-        c7: c7
+        c7: c7,
+        c1_img: c1_img,
+        c2_img: c2_img,
+        c3_img: c3_img,
+        c4_img: c4_img,
+        c5_img: c5_img,
+        c6_img: c6_img,
+        c7_img: c7_img,
+        id_to_remove: id_to_remove
       });
     }
     else{
@@ -295,7 +373,14 @@ router.post('/create', (req,res,next)=> {
         c4: c4,
         c5: c5,
         c6: c6,
-        c7: c7
+        c7: c7,
+        c1_img: c1_img,
+        c2_img: c2_img,
+        c3_img: c3_img,
+        c4_img: c4_img,
+        c5_img: c5_img,
+        c6_img: c6_img,
+        c7_img: c7_img
       });
     }
 

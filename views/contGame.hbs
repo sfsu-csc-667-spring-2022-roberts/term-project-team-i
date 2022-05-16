@@ -7,14 +7,7 @@
                     <div id="game-field">
 
                         <div id="player">You
-                            <input id="play-card-button" type="submit" onclick="playCard()" value="Play Card" />
                             <div id="player_hand">
-                                Values from backend:
-                                {{c1}}, {{c2}}, {{c3}}, {{c4}}, {{c5}}, {{c6}}, {{c7}} <br>
-                                value to remove from player hand: {{valueToRemove}}<br>
-                                validPlay? {{validPlay}} <br>
-                                lastPlayed: {{lastPlayed}} <br>
-                                c1_img: {{c1_img}}
 
                                 {{!-- MUST write function in backend to pass FULL src img value to frontend.
                                 THEN fill the {{c1_image}} tage into src={{c1_image}}. --}}
@@ -59,32 +52,41 @@
                                 <input type="hidden" id="card_5" name="c6" value=""></input>
                                 <input type="hidden" id="card_6" name="c7" value=""></input>
                             </div>
-
-                            {{!-- Which card is being selected --}}
-                            <button type="button" onclick="displayRadioValue()">number selected <div id="result"></div>
-                                </button>
                         </div>
 
                         <div id="player_top">Opponent
                             <div id="player_hand_top">
+                                <img src="/public/images/cards/card_back.png" alt="draw pile" />
+                                <img src="/public/images/cards/card_back.png" alt="draw pile" />
+                                <img src="/public/images/cards/card_back.png" alt="draw pile" />
+                                <img src="/public/images/cards/card_back.png" alt="draw pile" />
+                                <img src="/public/images/cards/card_back.png" alt="draw pile" />
+                                <img src="/public/images/cards/card_back.png" alt="draw pile" />
+                                <img src="/public/images/cards/card_back.png" alt="draw pile" />
                             </div>
                         </div>
 
 
                         <div id="piles_area">
+                            <div style="margin-right: 0px; width:200px;"> Valid play? <br> {{validPlay}}</div>
                             <div id="draw_pile" onclick="drawCard()">
                                 <img src="/public/images/cards/card_back.png" alt="draw pile" />
                                 <input type="hidden" id="lastPlayed" name="lastPlayed" value=""></input>
                             </div>
-                            <div> valid play? <br> {{validPlay}}</div>
                             <div id="discard_pile">
-                                <label>
-                                    <input type="radio" value={{lastPlayed}} name="lp_card">
-                                    <img src={{lp_img}}>
-                                </label>
                             </div>
+                            <input id="play-card-button" style="margin-left: 200px;" class="button" type="submit"
+                                value="Play Card" />
                         </div>
 
+                    </div>
+                    <div>
+                        Values from backend:
+                        {{c1}}, {{c2}}, {{c3}}, {{c4}}, {{c5}}, {{c6}}, {{c7}} <br>
+                        value to remove from player hand: {{valueToRemove}}<br>
+                        validPlay? {{validPlay}} <br>
+                        lastPlayed: {{lastPlayed}} <br>
+                        c1_img: {{c1_img}}
                     </div>
                 </form>
             </div>

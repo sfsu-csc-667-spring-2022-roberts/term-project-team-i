@@ -424,7 +424,7 @@ form {
     box-shadow: 5px 5px #000000;
     transition: all 0.12s ease-in-out;
 }
-.button:focus {
+.button:hover {
     background-color: white;
     color: rgb(255, 72, 72);
     border: 2px solid rgb(255, 72, 72);
@@ -444,7 +444,7 @@ form {
     transition: all 0.12s ease-in-out;
     margin-top: -50px;
 }
-.button-small:focus {
+.button-small:hover {
     background-color: white;
     color: rgb(255, 72, 72);
     border: 2px solid rgb(255, 72, 72);
@@ -571,6 +571,7 @@ form {
     justify-content: center;
     align-items: center;
     margin-top: 60px;
+    z-index: 5;
 }
 #button-game {
     border: 2px solid #111;
@@ -587,7 +588,7 @@ form {
     z-index: 5;
 }
 
-#button-game:focus {
+#button-game:hover {
     background-color: white;
     color: rgb(255, 72, 72);
     border: 2px solid rgb(255, 72, 72);
@@ -597,29 +598,29 @@ form {
 .lobby-name {
     padding: 30px;
 }
-#piles-area {
+#piles_area {
     grid-area: 2/2;
 }
 #player {
     grid-area: 3/2;
 }
 
-#player-top {
+#player_top {
     grid-area: 1/2;
 }
-#player-hand-top-top {
+#player_hand_top_top {
     position: absolute;
 }
 
-#player-hand,
-#player-hand-top {
+#player_hand,
+#player_hand_top {
     position: relative;
     display: flex;
 }
 
-#player-hand > img,
-#player-hand-top > img,
-#player-hand-top-top > img {
+#player_hand > img,
+#player_hand_top > img,
+#player_hand_top_top > img {
     border: 2px solid #111;
     cursor: pointer;
     box-shadow: 2px 2px #000000;
@@ -627,17 +628,17 @@ form {
     margin-right: 8px;
 }
 
-#player #player-hand > img:hover {
+#player #player_hand > img:hover {
     transform: rotate(5deg) translateY(-20px);
 }
 
-#piles-area {
+#piles_area {
     display: flex;
     align-items: center;
-    margin-left: -150px;
+    margin-left: 150px;
 }
 
-#draw-pile {
+#draw_pile {
     cursor: pointer;
     display: flex;
     align-self: center;
@@ -648,16 +649,16 @@ form {
         0px 16px #000000, 0px 18px #fff, 0px 20px #000000;
 }
 
-#draw-pile:hover {
+#draw_pile:hover {
     transform: rotate(2deg) translateY(-20px);
 }
 
-#discard-pile {
+#discard_pile {
     display: flex;
     align-items: center;
 }
 
-#discard-pile > img {
+#discard_pile > img {
     border: 2px solid #111;
     cursor: pointer;
     box-shadow: 2px 2px #000000;
@@ -681,10 +682,12 @@ form {
     border-radius: 7px;
     margin-right: 8px;
 }
+[type="radio"] + img:hover {
+    transform: rotate(2deg) translateY(-20px);
+}
 
-/* CHECKED STYLES */
 [type="radio"]:checked + img {
-    outline: 2px solid #f00;
+    outline: 4px solid #f00;
 }
 
 #message-container {

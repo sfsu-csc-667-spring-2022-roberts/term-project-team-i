@@ -67,20 +67,12 @@ function play() {
     for (i = 0; i < 7; i++) {
         var x = document.createElement("IMG");
         var y = document.createElement("IMG");
-<<<<<<< HEAD
         var z = document.createElement("IMG");
-        x.setAttribute("src", cards[getRndInteger(1, 54)]);
-        y.setAttribute("src", cards[getRndInteger(1, 54)]);
-        z.setAttribute("src", cards[0]);
-        document.getElementById("player-hand").appendChild(x);
-        document.getElementById("player-hand-top").appendChild(y);
-        document.getElementById("player-hand-top-top").appendChild(z);
-=======
 
         var randNumX = getRndInteger(1, 54);
 
         y.setAttribute("src", cards[getRndInteger(1, 54)]);
-
+        z.setAttribute("src", cards[0]);
         x.setAttribute("src", cards[randNumX]);
         //x.setAttribute("id", "card"+i);
 
@@ -103,7 +95,7 @@ function play() {
         //document.getElementById("player_hand").appendChild(x);
         document.getElementById("player_hand").appendChild(radLabel);
         document.getElementById("player_hand_top").appendChild(y);
-
+        document.getElementById("player_hand_top_top").appendChild(z);
         //document.getElementsByName("card_radio_btn").appendChild(radLabel);
 
         //document.getElementById("card"+i).appendChild(radN)
@@ -113,28 +105,8 @@ function play() {
         // //attaching radio buttons to each player card
         // <input type="radio" name="sex" value="male" id="male-radio">
         // <label for="male-radio"><img src="http://www.cksinfo.com/clipart/signssymbols/iconman.png" width="20"></label>
->>>>>>> jacobBranch
     }
 }
-function displayRadioValue() {
-    var ele = document.getElementsByName("card_radio_btn");
-
-    for (i = 0; i < ele.length; i++) {
-        if (ele[i].checked) document.getElementById("result").innerHTML = "Gender: " + ele[i].value;
-    }
-}
-
-// function playCard() {
-//     var test = document.getElementById("card_1_img").src;
-//     localStorage.setItem("name", test);
-
-//     document.getElementById("card_1_img").setAttribute("src", "http://localhost:3000/public/images/cards/green_0.png");
-
-//     var test2 = document.getElementById("card_1").value;
-//     localStorage.setItem("name2", test2);
-
-//     // document.getElementById("card_1_img").setAttribute("src", localStorage.getItem("name"));
-// }
 
 function drawCard() {
     var i;
@@ -159,10 +131,6 @@ function drawCard() {
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
-
-// function collectHand(){
-//     document.getElementById("card_"+i).setAttribute("value",randCardNum);
-// }
 
 function removeCard() {
     let ele = document.getElementById("id_to_remove");

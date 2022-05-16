@@ -13,7 +13,7 @@
                     <div id="game-field">
 
                         <div id="player">You
-                            <input id="play-card-button" type="submit" value="Play Card" />
+                            
                             <div id="player_hand">
                                 {{!-- these values are filled by cards.js --}}
                                 <input type="hidden" id="card_0" name="c1" value=""></input>
@@ -24,26 +24,24 @@
                                 <input type="hidden" id="card_5" name="c6" value=""></input>
                                 <input type="hidden" id="card_6" name="c7" value=""></input>
                             </div>
-
-                            {{!-- Which card is being selected --}}
-                            <button type="button" onclick="displayRadioValue()">number selected <div id="result"></div>
-                            </button>
                         </div>
 
                         <div id="player_top">Opponent
                             <div id="player_hand_top">
+                                <div id="player_hand_top_top">
+                                </div>
                             </div>
                         </div>
 
 
                         <div id="piles_area">
+                            <div style="margin-right: 0px;width:200px"> Valid play? {{validPlay}}</div>
                             <div id="draw_pile" onclick="drawCard()">
                                 <img src="/public/images/cards/card_back.png" alt="draw pile" />
                                 <input type="hidden" id="lastPlayed" name="lastPlayed" value=""></input>
                             </div>
-                            <div> valid play? <br> {{validPlay}}</div>
-                            <div id="discard_pile">
-                            </div>
+                            <div id="discard_pile"></div>
+                            <input id="play-card-button" style="margin-left: 200px;" class="button" type="submit" value="Play Card" />
                         </div>
 
                     </div>
